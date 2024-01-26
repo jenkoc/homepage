@@ -2,6 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import { useLocalStorage } from "react-use";
+import Link from "next/link";
+
+import styles from "../app/page.module.css";
 
 export function CookieBanner() {
   const [isClient, setIsClient] = useState(false);
@@ -26,23 +29,41 @@ export function CookieBanner() {
       style={{
         display: consent === "a" || consent === "d" ? "none" : "block",
         backdropFilter: "blur(10px)",
-        "-webkit-backdrop-filter": "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
         padding: "10px",
         transform: transform,
         transition: "transform 0.5s ease-out",
       }}
     >
-      <div>
-        <div>
-          <div>
-            <p style={{ fontWeight: "bolder" }}>CookiesPolicy</p>
-            <p>CookiesPolicyText</p>
-          </div>
-          <div tokens={{ childrenGap: 10 }}>
-            <button type="button" class="btn btn-primary" onClick={() => handleClick("a")}>Accept</button>
-
-            <a onClick={() => handleClick("d")}>Decline</a>
-          </div>
+      <div className={`${styles.container} d-flex justify-content-between p-1`}>
+        <div className="text-left">
+          <p style={{ fontWeight: "bolder" }}>Cookie Richtlinie</p>
+          <p>
+            Wir nutzen Cookies auf unserer Website. Einige von ihnen sind
+            essenziell, während andere uns helfen, diese Website und Ihre
+            Erfahrung zu verbessern. Weitere Informationen zu den von uns
+            verwendeten Cookies finden Sie in unseren{" "}
+            <Link href="/cookiePolicy" className="text-muted">
+              Cookie-Richtlinien
+            </Link>
+            .
+          </p>
+        </div>
+        <div className="align-items-end d-flex justify-content-end">
+          <button
+            type="button"
+            className="btn btn-primary m-1"
+            onClick={() => handleClick("a")}
+          >
+            Akzeptieren
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary m-1"
+            onClick={() => handleClick("d")}
+          >
+            Ablehnen
+          </button>
         </div>
       </div>
     </div>

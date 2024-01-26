@@ -9,17 +9,17 @@ export const Footer = () => {
         <ul className="nav justify-content-center">
           <li className="nav-item">
             <Link href="/imprint" className="nav-link px-2 text-muted" style={{ color: "var(--textColor) !important" }}>
-              Imprint
+              Impressum
             </Link>
           </li>
           <li className="nav-item">
             <Link href="/cookiePolicy" className="nav-link px-2 text-muted" style={{ color: "var(--textColor) !important" }}>
-              Cookie Policy
+              Cookie Richtlinie
             </Link>
           </li>
           <li className="nav-item">
             <Link href="/privacyPolicy" className="nav-link px-2 text-muted" style={{ color: "var(--textColor) !important" }}>
-              Privacy Policy
+            Datenschutz
             </Link>
           </li>
         </ul>

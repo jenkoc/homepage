@@ -25,10 +25,6 @@
   --white: '#e9e1cc';
   --textColor: #323130;
 
-  --bs-heading-color: #323130;
-  --bs-primary-color: #9a9f78;
-  --bs-secondary-color: #323130;
-
   --background: radial-gradient(circle at 18.7% 37.8%, #eeefe6 0%, #fff 90%);
 }
 
@@ -60,76 +56,105 @@ a {
   }
 }
 
-.hover-underline-animation {
-  display: inline-block;
-  position: relative;
-}
+@media (min-width: 768px) {
+  .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+  }
 
-.hover-underline-animation:after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  transform: scaleX(0);
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color:
-    var(--bs-primary-color);
-  transform-origin: bottom left;
-  transition: transform 0.25s ease-out;
-}
+  .hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--textColor);
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+  }
 
-.hover-underline-animation:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
 
-.fadein-img-1 {
-	animation: fadeInImageAnimation ease 1s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+  .fadein-img-1 {
+    opacity: 0;
+    animation: fadeInImageAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
 }
 
 .fadein-img-2 {
-	animation: fadeInImageAnimation ease 1s;
-	animation-delay: 0.5s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+  opacity: 0;
+  animation: fadeInImageAnimation ease 1s;
+  animation-delay: 0.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.fadein-img-5 {
+  opacity: 0;
+  animation: fadeInImageAnimation ease 1s;
+  animation-delay: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .fadein-text-1 {
   opacity: 0;
   animation: fadeInTextAnimation ease 1s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 .fadein-text-2 {
   opacity: 0;
   animation: fadeInTextAnimation ease 1s;
   animation-delay: 0.5s;
-	animation-iteration-count: 1;
-	animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.fadein-text-3 {
+  opacity: 0;
+  animation: fadeInTextAnimation ease 1s;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+.fadein-text-4 {
+  opacity: 0;
+  animation: fadeInTextAnimation ease 1s;
+  animation-delay: 1.5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
 
 @keyframes fadeInImageAnimation {
-	0% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInTextAnimation {
-	0% {
-		opacity: 0;
+  0% {
+    opacity: 0;
     transform: translateY(20px);
-	}
-	100% {
-		opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
     transform: translateY(0);
-	}
+  }
 }
 
 .text-left {

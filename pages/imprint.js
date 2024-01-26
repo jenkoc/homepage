@@ -4,7 +4,7 @@ export default function Privacy() {
   return (
     <main className={styles.main}>
       <h5>Impressum</h5>
-      <h5>Seitenbetreiber:</h5>
+      <h5>Seitenbetreiber</h5>
       <p>
         Jens Kock
         <br />
@@ -14,7 +14,7 @@ export default function Privacy() {
       </p>
       <h5>Kontakt</h5>
       <p>
-        Telefon: [Telefonnummer]
+        Telefon: +49 179 9032213
         <br />
         E-Mail: mail@jenskock.de
         <br />

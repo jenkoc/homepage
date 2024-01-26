@@ -1,19 +1,24 @@
 import { GeistSans } from "geist/font/sans";
-import { CookieBanner } from '@/components/cookieBanner';
+import { CookieBanner } from "@/components/cookieBanner";
 
 import Head from "next/head";
 import Script from "next/script";
 import Navbar from "./navbar";
 import Footer from "./footer";
 
-import "bootstrap/dist/css/bootstrap.css";
 import "../app/globals.css";
+import "bootstrap/dist/css/bootstrap.css";
+import "../styles/scss/bootstrap.scss";
 
 export default function Layout({ children }) {
   return (
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="format-detection"
+          content="telephone=no, date=no, email=no, address=no"
+        />
         {/* <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -51,7 +56,7 @@ export default function Layout({ children }) {
       <div className={GeistSans.className}>
         <Navbar />
         {children}
-        <CookieBanner suppressHydrationWarning/>
+        <CookieBanner suppressHydrationWarning />
         <Footer />
       </div>
     </>

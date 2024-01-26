@@ -204,8 +204,9 @@ export default function Imprint() {
             Diese Anwendung verwendet Tracker. Weitere Informationen ergeben
             sich aus der{" "}
             <Link
-              href="/privacy"
+              href="/cookiePolicy"
               title="Cookie-Richtlinie"
+               className="text-muted"
             >
               Cookie-Richtlinie
             </Link>
@@ -213,7 +214,7 @@ export default function Imprint() {
           </p>
         </div>
 
-        <h5 id="cookie_policy_further_information">
+        <h5 >
           Weitere Informationen für Nutzer
         </h5>
 

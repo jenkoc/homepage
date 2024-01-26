@@ -8,6 +8,7 @@ import Footer from "@/components/footer";
 
 import "./globals.css";
 import "bootstrap/dist/css/bootstrap.css";
+import "../styles/scss/bootstrap.scss";
 
 export const metadata = {
   title: "Jens Kock",
@@ -20,6 +21,10 @@ export default function RootLayout({ children }) {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="format-detection"
+          content="telephone=no, date=no, email=no, address=no"
+        />
         {/* <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -38,7 +43,7 @@ export default function RootLayout({ children }) {
         <body className={GeistSans.className}>
           <Navbar />
           {children}
-          <CookieBanner suppressHydrationWarning/>
+          <CookieBanner suppressHydrationWarning />
           <Footer />
         </body>
       </html>

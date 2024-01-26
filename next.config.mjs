@@ -1,6 +1,11 @@
+
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
-    transpilePackages: ["geist"],
+  transpilePackages: ["geist"],
+  sassOptions: {
+    includePaths: ["./styles"],
+  },
 };
 
 export default nextConfig;
