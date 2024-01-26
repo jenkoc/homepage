@@ -1,4 +1,5 @@
-import { GeistSans } from 'geist/font/sans';
+import { GeistSans } from "geist/font/sans";
+import { CookieBanner } from "@/components/cookieBanner";
 
 import Head from "next/head";
 import Script from "next/script";
@@ -37,6 +38,7 @@ export default function RootLayout({ children }) {
         <body className={GeistSans.className}>
           <Navbar />
           {children}
+          <CookieBanner suppressHydrationWarning/>
           <Footer />
         </body>
       </html>
