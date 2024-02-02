@@ -1,6 +1,9 @@
+import HelmentMetaTags from "../components/helmetMetaTags";
+
 export default function PrivacyPolicy() {
   return (
     <main className="m-4">
+      <HelmentMetaTags />
       <h5>Impressum</h5>
       <h5>Seitenbetreiber</h5>
       <p>

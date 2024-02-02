@@ -6,6 +6,7 @@ const CTAButton = ({ title, href, target, type, className }) => {
       href={href}
       onClick={() => window.open(href, target)}
       target={target}
+      style={{minWidth: "180px"}}
     >
       <div className="d-flex justify-content-start">
         {type ? (

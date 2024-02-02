@@ -1,7 +1,28 @@
-import SkillImage from "../components/skillImage";
+import React from "react";
+import { getBlogPosts } from "../api";
+import Shimmer from "../components/shimmer";
 import CTAButton from "../components/ctaButton";
+import SkillImage from "../components/skillImage";
+import HelmentMetaTags from "../components/helmetMetaTags";
 
 export default function Home() {
+  const [posts, setPosts] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    getBlogPosts()
+      .then((response) => {
+        setPosts(response.data);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.error(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
+
   const bentoClass = "p-3 my-2";
   const bentoStyle = {
     minHeight: "300px",
@@ -23,6 +44,7 @@ export default function Home() {
 
   return (
     <main>
+      <HelmentMetaTags />
       <div className="container-fluid mt-2" style={{ maxWidth: "1100px" }}>
         <div className="row no-gutters align-items-stretch">
           <div className="col-sm-8 d-flex flex-column">
@@ -120,41 +142,53 @@ export default function Home() {
           </div>
           <div className="col-sm d-flex flex-column">
             <div className={`${bentoClass} flex-grow-1`} style={bentoStyle}>
-              <h5 className="text-center">Blog</h5>
-              <div className="d-flex flex-column">
-                <div>
-                  <a
-                    href="https://www.linkedin.com/pulse/how-run-local-apps-from-business-central-web-client-jens-kock/?trackingId=Qa%2BnXHsxQHSfTALfOrihnA%3D%3D"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <div className="comment mt-1 text-justify float-left">
-                      <h5 className="text-muted">21 Mai, 2021</h5>
-                      <p>
-                        How to run local Apps from Business Central Web
-                        Client...
-                      </p>
-                    </div>
-                  </a>
-                </div>
-                <div>
-                  <a
-                    href="https://www.linkedin.com/pulse/von-der-theorie-die-praxis-digitalisierung-mal-ganz-konkret-jens-kock/?trackingId=Qa%2BnXHsxQHSfTALfOrihnA%3D%3D"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <div className="comment mt-1 text-justify float-left">
-                      <h5 className="text-muted">21 Mai, 2019</h5>
-                      <p>
-                        Von der Theorie in die Praxis – Digitalisierung mal ganz
-                        konkret...
-                      </p>
-                    </div>
-                  </a>
-                </div>
+              <a href="/blog">
                 <div className="d-flex justify-content-center">
-                  <CTAButton title="Mehr" href="/blog" target="_self"/>
+                  <h5 className="text-center me-1">Blog</h5>
+                  <img
+                    src="/double-right.svg"
+                    width="20px"
+                    height="20px"
+                    alt="blog"
+                    style={{
+                      position: "relative",
+                      top: "3px",
+                    }}
+                  />
                 </div>
+              </a>
+              <div className="d-flex flex-column">
+                {loading ? (
+                  <div>
+                    <div
+                      className="mt-2"
+                      style={{ width: "100%", height: "20px" }}
+                    >
+                      <Shimmer />
+                    </div>
+                    <div
+                      className="mt-2"
+                      style={{ width: "40%", height: "20px" }}
+                    >
+                      <Shimmer />
+                    </div>
+                  </div>
+                ) : null}
+                {posts.map((post) => {
+                  return (
+                    <a
+                      key={post.id}
+                      href={`/blog/${post.id}`}
+                      target="_self"
+                      rel="noreferrer"
+                    >
+                      <div className="comment mt-1 text-justify">
+                        <h5 className="text-muted">{post.title}</h5>
+                        <p>{new Date(post.pubDate).toLocaleString()}</p>
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -222,11 +256,7 @@ export default function Home() {
                 nächste Level zu heben.
               </p>
               <div className="overlay d-flex justify-content-center align-items-center">
-                <CTAButton
-                  title="Mehr"
-                  href="/about"
-                  target="_self"
-                />
+                <CTAButton title="Mehr" href="/about" target="_self" />
               </div>
             </div>
           </div>

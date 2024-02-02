@@ -1,6 +1,9 @@
+import HelmentMetaTags from "../components/helmetMetaTags";
+
 export default function About() {
   return (
     <main className="m-4">
+      <HelmentMetaTags />
       <h5>Über mich</h5>
       <p className="fadein-text-1">
         Hallo, ich bin Jens und meine Begeisterung für alles, was mit

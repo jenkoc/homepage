@@ -1,6 +1,9 @@
+import HelmentMetaTags from "../components/helmetMetaTags";
+
 export default function CookiePolicy() {
   return (
     <main className="m-4">
+      <HelmentMetaTags />
       <div>
         <div>
           <h5>Cookie Richtlinie</h5>

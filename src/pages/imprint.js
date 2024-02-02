@@ -1,7 +1,9 @@
+import HelmentMetaTags from "../components/helmetMetaTags";
 
 export default function Imprint() {
   return (
     <main className="m-4">
+      <HelmentMetaTags />
       <div>
         <div>
           <h5>Datenschutzerklärung</h5>

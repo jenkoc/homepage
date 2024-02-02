@@ -1,13 +1,11 @@
+import HelmentMetaTags from "../components/helmetMetaTags";
 import CTAButton from "../components/ctaButton";
 
 export default function NotFound() {
   return (
     <main className="m-4 d-flex text-center flex-column align-items-center justify-content-center">
-      <img
-        src="notFound.png"
-        alt="logo"
-        style={{ maxWidth: "200", maxHeight: "200" }}
-      />
+      <HelmentMetaTags />
+      <img src="/notFound.png" alt="logo" style={{ maxWidth: "200px" }} />
       <h3>
         Hoppla! Es scheint, als hättest du eine Seite gefunden, die nicht
         existiert.

@@ -9,6 +9,7 @@ import PrivacyPolicy from "./pages/privacyPolicy";
 import CookiePolicy from "./pages/cookiePolicy";
 import About from "./pages/about";
 import Blog from "./pages/blog";
+import SingleBlogPost from "./pages/singleBlogPost";
 import NotFound from "./pages/notFound";
 
 // Header
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/about" element={<About />} />
           <Route exact path="/blog" element={<Blog />} />
+          <Route exact path="/blog/:id" element={<SingleBlogPost />} />
           <Route exact path="/cookiepolicy" element={<CookiePolicy />} />
           <Route exact path="/imprint" element={<Imprint />} />
           <Route exact path="/privacypolicy" element={<PrivacyPolicy />} />
