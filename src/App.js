@@ -9,6 +9,7 @@ import PrivacyPolicy from "./pages/privacyPolicy";
 import CookiePolicy from "./pages/cookiePolicy";
 import About from "./pages/about";
 import Blog from "./pages/blog";
+import NotFound from "./pages/notFound";
 
 // Header
 import Navbar from "./components/navbar";
@@ -41,6 +42,7 @@ function App() {
           <Route exact path="/cookiepolicy" element={<CookiePolicy />} />
           <Route exact path="/imprint" element={<Imprint />} />
           <Route exact path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
       <CookieBanner />

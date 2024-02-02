@@ -103,7 +103,7 @@ export default function Home() {
                 className="fadein-text-1 w-100 mx-auto"
               />
               <CTAButton
-                title="Buchen einen Termin mit mir"
+                title="Buche einen Termin mit mir"
                 href="https://outlook.office.com/bookwithme/user/55b016e6f2ae4c2181b70f6cc1ca1b76@jenskock.de?anonymous&ep=plink"
                 target="_blank"
                 type="calendar"
