@@ -14,9 +14,8 @@ export default function Home() {
       .then((response) => {
         setPosts(response.data);
       })
-      .catch((err) => {
+      .catch(() => {
         setLoading(false);
-        console.error(err);
       })
       .finally(() => {
         setLoading(false);

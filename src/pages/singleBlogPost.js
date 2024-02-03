@@ -14,11 +14,11 @@ export default function SingleBlogPost() {
   React.useEffect(() => {
     getBlogPost(id)
       .then((response) => {
+        response.data.pubDate = new Date(response.data.pubDate).toLocaleString()
         setPost(response.data);
       })
-      .catch((err) => {
+      .catch(() => {
         setLoading(false);
-        console.error(err);
       })
       .finally(() => {
         setLoading(false);
