@@ -1,5 +1,6 @@
 import React from "react";
 import { getBlogPosts } from "../api";
+import { Link } from "react-router-dom";
 import Shimmer from "../components/shimmer";
 import CTAButton from "../components/ctaButton";
 import SkillImage from "../components/skillImage";
@@ -141,7 +142,7 @@ export default function Home() {
           </div>
           <div className="col-sm d-flex flex-column">
             <div className={`${bentoClass} flex-grow-1`} style={bentoStyle}>
-              <a href="/blog">
+              <Link to="/blog">
                 <div className="d-flex justify-content-center">
                   <h5 className="me-1">Blog</h5>
                   <img
@@ -155,7 +156,7 @@ export default function Home() {
                     }}
                   />
                 </div>
-              </a>
+              </Link>
               <div className="d-flex flex-column">
                 {loading ? (
                   <div>
@@ -175,9 +176,9 @@ export default function Home() {
                 ) : null}
                 {posts.map((post) => {
                   return (
-                    <a
+                    <Link
                       key={post.id}
-                      href={`/blog/${post.id}`}
+                      to={`/blog/${post.id}`}
                       target="_self"
                       rel="noreferrer"
                     >
@@ -185,7 +186,7 @@ export default function Home() {
                         <h5 className="text-muted">{post.title}</h5>
                         <p>{new Date(post.pubDate).toLocaleString()}</p>
                       </div>
-                    </a>
+                    </Link>
                   );
                 })}
               </div>

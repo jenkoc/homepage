@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -7,7 +8,7 @@ const Navbar = () => {
       style={{ borderColor: "var(--bs-primary) !important" }}
     >
       <div className="container-fluid">
-        <a className="navbar-brand" href="/#">
+        <Link className="navbar-brand" to="/#">
           <div className="d-flex">
             <img
               src="/jk.svg"
@@ -36,7 +37,7 @@ const Navbar = () => {
               </h6>
             </div>
           </div>
-        </a>
+        </Link>
         {/* <button
           className="navbar-toggler"
           type="button"

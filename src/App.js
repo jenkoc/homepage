@@ -1,5 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// Local Storage
+import { useLocalStorage } from "react-use";
+
 // Google Analytics
 import ReactGA from "react-ga4";
 
@@ -29,13 +32,17 @@ import "./styles/bootstrap.scss";
 import "./App.css";
 
 function App() {
-  const TRACKING_ID = "G-CVW64BR7TM";
-  ReactGA.initialize(TRACKING_ID);
+  const [consent] = useLocalStorage("cc", "x");
+
+  if (consent === "a") {
+    const TRACKING_ID = "G-CVW64BR7TM";
+    ReactGA.initialize(TRACKING_ID);
+  }
 
   return (
     <div className="App">
-      <Navbar />
       <BrowserRouter history={history}>
+        <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/about" element={<About />} />
@@ -46,9 +53,9 @@ function App() {
           <Route exact path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <CookieBanner />
+        <Footer />
       </BrowserRouter>
-      <CookieBanner />
-      <Footer />
     </div>
   );
 }

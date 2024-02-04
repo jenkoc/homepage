@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useLocalStorage } from "react-use";
 
 export function CookieBanner() {
@@ -24,15 +25,14 @@ export function CookieBanner() {
     >
       <div className={`container d-flex justify-content-between p-1`}>
         <div className="text-left">
-          <p style={{ fontWeight: "bolder" }}>Cookie Richtlinie</p>
+          <p style={{ fontWeight: "bolder" }}>Cookie Policy</p>
           <p>
-            Wir nutzen Cookies auf unserer Website. Einige von ihnen sind
-            essenziell, während andere uns helfen, diese Website und Ihre
-            Erfahrung zu verbessern. Weitere Informationen zu den von uns
-            verwendeten Cookies finden Sie in unseren{" "}
-            <a href="/cookiePolicy" className="text-muted">
-              Cookie-Richtlinien
-            </a>
+            We use cookies on our website. Some of them are essential, while
+            others help us improve this website and your experience. For more
+            information about the cookies we are using, please see our{" "}
+            <Link to="/cookiePolicy">
+              cookie policy
+            </Link>
             .
           </p>
         </div>
@@ -42,14 +42,14 @@ export function CookieBanner() {
             className="btn btn-primary m-1"
             onClick={() => handleClick("a")}
           >
-            Akzeptieren
+            Accept
           </button>
           <button
             type="button"
             className="btn btn-secondary m-1"
             onClick={() => handleClick("d")}
           >
-            Ablehnen
+            Decline
           </button>
         </div>
       </div>

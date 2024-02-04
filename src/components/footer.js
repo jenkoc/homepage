@@ -1,34 +1,36 @@
+import { Link } from "react-router-dom";
+
 export const Footer = () => {
   return (
     <footer className="p-4">
       <div className="row">
         <ul className="nav justify-content-center">
           <li className="nav-item">
-            <a
-              href="/imprint"
+            <Link
+              to="/imprint"
               className="nav-link px-2 text-muted hover-underline-animation"
               style={{ color: "var(--textColor) !important" }}
             >
               Imprint
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a
-              href="/cookiePolicy"
+            <Link
+              to="/cookiePolicy"
               className="nav-link px-2 text-muted hover-underline-animation"
               style={{ color: "var(--textColor) !important" }}
             >
               Cookie Policy
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a
-              href="/privacyPolicy"
+            <Link
+              to="/privacyPolicy"
               className="nav-link px-2 text-muted hover-underline-animation"
               style={{ color: "var(--textColor) !important" }}
             >
               Data Protection
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

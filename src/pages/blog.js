@@ -1,6 +1,7 @@
 import React from "react";
 import Shimmer from "../components/shimmer";
 import HelmentMetaTags from "../components/helmetMetaTags";
+import { Link } from "react-router-dom";
 import { getBlogPosts } from "../api";
 
 export default function Blog() {
@@ -65,13 +66,13 @@ export default function Blog() {
               {posts.map((post) => {
                 const pubDate = new Date(post.pubDate).toLocaleString();
                 return (
-                  <a id={post.id} href={`/blog/${post.id}`}>
+                  <Link id={post.id} to={`/blog/${post.id}`}>
                     <h5>{post.title}</h5>
                     <p className="text-muted">{pubDate}</p>
                     <div
                       dangerouslySetInnerHTML={{ __html: post.description }}
                     ></div>
-                  </a>
+                  </Link>
                 );
               })}
             </div>
