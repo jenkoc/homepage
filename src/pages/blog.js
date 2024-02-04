@@ -66,7 +66,7 @@ export default function Blog() {
               {posts.map((post) => {
                 const pubDate = new Date(post.pubDate).toLocaleString();
                 return (
-                  <Link id={post.id} to={`/blog/${post.id}`}>
+                  <Link key={post.id} to={`/blog/${post.id}`}>
                     <h5>{post.title}</h5>
                     <p className="text-muted">{pubDate}</p>
                     <div
