@@ -117,21 +117,21 @@ export default function Home() {
               style={bentoStyle}
             >
               <CTAButton
-                title="Schreibe mir eine Email"
+                title="Send me an email"
                 href="mailto:mail@jenskock.de"
                 target="_blank"
                 type="mail"
                 className="fadein-text-1 w-100 mx-auto"
               />
               <CTAButton
-                title="Buche einen Termin mit mir"
+                title="Book an appointment with me"
                 href="https://outlook.office.com/bookwithme/user/55b016e6f2ae4c2181b70f6cc1ca1b76@jenskock.de?anonymous&ep=plink"
                 target="_blank"
                 type="calendar"
                 className="fadein-text-2 w-100 mx-auto"
               />
               <CTAButton
-                title="Starte einen Chat mit mir"
+                title="Chat with me"
                 href="https://teams.microsoft.com/l/chat/0/0?users=mail@jenskock.de"
                 target="_blank"
                 type="chat"
@@ -143,7 +143,7 @@ export default function Home() {
             <div className={`${bentoClass} flex-grow-1`} style={bentoStyle}>
               <a href="/blog">
                 <div className="d-flex justify-content-center">
-                  <h5 className="text-center me-1">Blog</h5>
+                  <h5 className="me-1">Blog</h5>
                   <img
                     src="/double-right.svg"
                     width="20px"
@@ -239,23 +239,23 @@ export default function Home() {
             </div>
           </div>
           <div className="col-sm-8 d-flex flex-column">
-            <div className={`${bentoClass} flex-grow-1`} style={bentoStyle}>
-              <h5>Über mich</h5>
+            <div className={`${bentoClass} flex-grow-1 text-center`} style={bentoStyle}>
+              <h5>About me</h5>
               <p>
-                Hallo, ich bin Jens und meine Begeisterung für alles, was mit
-                Computern, Technik und Elektrik zu tun hat, begann bereits in
-                meiner Kindheit. Diese Leidenschaft hat mich über die Jahre
-                begleitet und ist bis heute ein zentraler Bestandteil meines
-                beruflichen und privaten Lebens. Mein Engagement gilt der
-                täglichen Auseinandersetzung mit den neuesten Technologien,
-                wobei ich immer darauf bedacht bin, die Einsatzmöglichkeiten
-                modernster Lösungen zu evaluieren und zu optimieren. Mein Ziel
-                ist es, die Prozesse meiner Kunden nicht nur zu verbessern,
-                sondern durch Automatisierung und innovative Ansätze auf das
-                nächste Level zu heben.
+                Hi, I'm Jens and my enthusiasm for everything to do with
+                computers computers, technology and electrics began in my
+                childhood. childhood. This passion has accompanied me over the
+                years and is still a central part of my professional and private
+                life. life. I am committed to dealing with the latest
+                technologies on a daily latest technologies, whereby I am always
+                keen to evaluate and to evaluate and optimize the potential
+                applications of the latest solutions. optimize. My goal is not
+                only to improve my clients' processes, but to but to take them
+                to the next level through automation and innovative next level
+                through automation and innovative approaches.
               </p>
               <div className="overlay d-flex justify-content-center align-items-center">
-                <CTAButton title="Mehr" href="/about" target="_self" />
+                <CTAButton title="More" href="/about" target="_self" />
               </div>
             </div>
           </div>

@@ -1,7 +1,6 @@
 import React from "react";
-import axios from "axios";
-import { getBlogPost } from "../api";
 import { useParams } from "react-router-dom";
+import { getBlogPost } from "../api";
 import HelmentMetaTags from "../components/helmetMetaTags";
 
 import Shimmer from "../components/shimmer";
@@ -14,7 +13,10 @@ export default function SingleBlogPost() {
   React.useEffect(() => {
     getBlogPost(id)
       .then((response) => {
-        response.data.pubDate = new Date(response.data.pubDate).toLocaleString()
+        response.data.pubDate = new Date(
+          response.data.pubDate
+        ).toLocaleString();
+        document.title = `JK - ${response.data.title}`;
         setPost(response.data);
       })
       .catch(() => {

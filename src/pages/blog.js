@@ -13,6 +13,8 @@ export default function Blog() {
     overflow: "hidden",
   };
 
+  document.title = "JK - Blog";
+
   const [posts, setPosts] = React.useState([]);
   const [loading, setLoading] = React.useState(true);
 

@@ -1,6 +1,7 @@
 import HelmentMetaTags from "../components/helmetMetaTags";
 
 export default function PrivacyPolicy() {
+  document.title = "JK - Privacy Policy";
   return (
     <main className="m-4">
       <HelmentMetaTags />

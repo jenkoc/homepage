@@ -9,7 +9,7 @@ export const Footer = () => {
               className="nav-link px-2 text-muted hover-underline-animation"
               style={{ color: "var(--textColor) !important" }}
             >
-              Impressum
+              Imprint
             </a>
           </li>
           <li className="nav-item">
@@ -18,7 +18,7 @@ export const Footer = () => {
               className="nav-link px-2 text-muted hover-underline-animation"
               style={{ color: "var(--textColor) !important" }}
             >
-              Cookie Richtlinie
+              Cookie Policy
             </a>
           </li>
           <li className="nav-item">
@@ -27,7 +27,7 @@ export const Footer = () => {
               className="nav-link px-2 text-muted hover-underline-animation"
               style={{ color: "var(--textColor) !important" }}
             >
-              Datenschutz
+              Data Protection
             </a>
           </li>
         </ul>

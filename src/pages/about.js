@@ -1,43 +1,39 @@
 import HelmentMetaTags from "../components/helmetMetaTags";
 
 export default function About() {
+  document.title = "JK - About me";
   return (
     <main className="m-4">
       <HelmentMetaTags />
-      <h5>Über mich</h5>
+      <h5>About me</h5>
       <p className="fadein-text-1">
-        Hallo, ich bin Jens und meine Begeisterung für alles, was mit
-        Computern, Technik und Elektrik zu tun hat, begann bereits in meiner
-        Kindheit. Diese Leidenschaft hat mich über die Jahre begleitet und ist
-        bis heute ein zentraler Bestandteil meines beruflichen und privaten
-        Lebens. Mein Engagement gilt der täglichen Auseinandersetzung mit den
-        neuesten Technologien, wobei ich immer darauf bedacht bin, die
-        Einsatzmöglichkeiten modernster Lösungen zu evaluieren und zu
-        optimieren. Mein Ziel ist es, die Prozesse meiner Kunden nicht nur zu
-        verbessern, sondern durch Automatisierung und innovative Ansätze auf das
-        nächste Level zu heben.
+        Hi, I'm Jens and my enthusiasm for everything to do with computers,
+        technology and electrics began when I was a child. This passion has
+        accompanied me over the years and is still a central part of my
+        professional and private life today. I am committed to working with the
+        latest technologies on a daily basis and am always keen to evaluate and
+        optimize the potential applications of state-of-the-art solutions. My
+        goal is not only to improve my clients' processes, but to take them to
+        the next level through automation and innovative approaches.
       </p>
       <p className="fadein-text-2">
-        In meiner Rolle als Solution Architekt und Lead Developer in
-        internationalen ERP-Projekten habe ich umfangreiche Erfahrungen
-        gesammelt, die es mir ermöglichen, auch die komplexesten technischen
-        Herausforderungen zu meistern. Ich leite technische Teams mit einer
-        klaren Vision, einem pragmatischen Ansatz und berate Vorstände in
-        mittelständischen Unternehmen, um deren digitale Transformation
-        zielführend zu unterstützen. Meine Expertise erstreckt sich über eine
-        breite Palette von Technologien, inklusive Microsoft Dynamics 365,
-        Azure, .NET sowie Webtechnologien wie JavaScript.
+        In my role as Solution Architect and Lead Developer in international
+        international ERP projects, I have gained extensive experience which
+        enables me to master even the most complex technical challenges.
+        challenges. I lead technical teams with a clear clear vision, a
+        pragmatic approach and advise board members in medium-sized medium-sized
+        companies to support their digital transformation in a goal-oriented
+        manner. My expertise covers a wide range of wide range of technologies,
+        including Microsoft Dynamics 365, Azure, .NET and web technologies such
+        as JavaScript.
       </p>
       <p className="fadein-text-3">
-        Die kontinuierliche Interaktion und das Brainstorming mit
-        Gleichgesinnten, gepaart mit der unablässigen Suche nach innovativen
-        Ansätzen, um das volle Potenzial modernster Technologien zu entfesseln,
-        sind für mich von essenzieller Bedeutung.
-      </p>
-      <p className="fadein-text-4">
-        Falls Sie bereit sind, gemeinsam neue Wege zu beschreiten und die
-        Zukunft aktiv zu gestalten, kontaktieren Sie mich. Ich freue mich
-        darauf, gemeinsam mit Ihnen Visionen Realität werden zu lassen.
+        The continuous interaction and brainstorming with with like-minded
+        people, coupled with the relentless search for innovative approaches to
+        unleash the full potential of the latest technologies, are essential for
+        me. If you are ready to break new ground together and actively shape the
+        actively shape the future, please contact me. I look forward to turn
+        visions into reality together with you.
       </p>
       <div className="d-flex justify-content-center mt-2">
         <img

@@ -2,8 +2,9 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light border-bottom"
-    style={{ borderColor: "var(--bs-primary) !important" }}
+    <nav
+      className="navbar navbar-expand-lg navbar-light bg-light border-bottom"
+      style={{ borderColor: "var(--bs-primary) !important" }}
     >
       <div className="container-fluid">
         <a className="navbar-brand" href="/#">

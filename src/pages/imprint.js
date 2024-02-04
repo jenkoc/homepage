@@ -1,6 +1,8 @@
 import HelmentMetaTags from "../components/helmetMetaTags";
 
 export default function Imprint() {
+  document.title = 'JK - Imprint';
+
   return (
     <main className="m-4">
       <HelmentMetaTags />

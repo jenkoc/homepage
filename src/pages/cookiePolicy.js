@@ -1,6 +1,8 @@
 import HelmentMetaTags from "../components/helmetMetaTags";
 
 export default function CookiePolicy() {
+  document.title = 'JK - Cookie Policy';
+
   return (
     <main className="m-4">
       <HelmentMetaTags />
