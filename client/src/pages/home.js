@@ -54,7 +54,7 @@ export default function Home() {
             >
               <img src="logo.svg" width="200" height="200" alt="logo" />
               <h3
-                className="fadein-text-1 text-left ms-4"
+                className="fadein-1 text-left ms-4"
                 style={{
                   maxWidth: "60vw",
                   color: "#323130",
@@ -122,21 +122,21 @@ export default function Home() {
                 href="mailto:mail@jenskock.de"
                 target="_blank"
                 type="mail"
-                className="fadein-text-1 w-100 mx-auto"
+                className="fadein-2 w-100 mx-auto"
               />
               <CTAButton
                 title="Book an appointment with me"
                 href="https://outlook.office.com/bookwithme/user/55b016e6f2ae4c2181b70f6cc1ca1b76@jenskock.de?anonymous&ep=plink"
                 target="_blank"
                 type="calendar"
-                className="fadein-text-2 w-100 mx-auto"
+                className="fadein-3 w-100 mx-auto"
               />
               <CTAButton
                 title="Chat with me"
                 href="https://teams.microsoft.com/l/chat/0/0?users=mail@jenskock.de"
                 target="_blank"
                 type="chat"
-                className="fadein-text-3 w-100 mx-auto"
+                className="fadein-4 w-100 mx-auto"
               />
             </div>
           </div>
@@ -240,20 +240,21 @@ export default function Home() {
             </div>
           </div>
           <div className="col-sm-8 d-flex flex-column">
-            <div className={`${bentoClass} flex-grow-1 text-center`} style={bentoStyle}>
+            <div
+              className={`${bentoClass} flex-grow-1 text-center`}
+              style={bentoStyle}
+            >
               <h5>About me</h5>
               <p>
                 Hi, I'm Jens and my enthusiasm for everything to do with
-                computers computers, technology and electrics began in my
-                childhood. childhood. This passion has accompanied me over the
-                years and is still a central part of my professional and private
-                life. life. I am committed to dealing with the latest
-                technologies on a daily latest technologies, whereby I am always
-                keen to evaluate and to evaluate and optimize the potential
-                applications of the latest solutions. optimize. My goal is not
-                only to improve my clients' processes, but to but to take them
-                to the next level through automation and innovative next level
-                through automation and innovative approaches.
+                computers, technology and electrics began when I was a child.
+                This passion has accompanied me over the years and is still a
+                central part of my professional and private life today. I am
+                committed to working with the latest technologies on a daily
+                basis and am always keen to evaluate and optimize the potential
+                applications of state-of-the-art solutions. My goal is not only
+                to improve my clients' processes, but to take them to the next
+                level through automation and innovative approaches.
               </p>
               <div className="overlay d-flex justify-content-center align-items-center">
                 <CTAButton title="More" href="/about" target="_self" />

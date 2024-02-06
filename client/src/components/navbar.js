@@ -9,34 +9,18 @@ const Navbar = () => {
     >
       <div className="container-fluid">
         <Link className="navbar-brand" to="/#">
-          <div className="d-flex">
-            <img
-              src="/jk.svg"
-              width="45"
-              height="45"
-              alt=""
-              style={{
-                position: "relative",
-                top: "-2px",
-                scale: "1.2",
-                marginRight: "8px",
-              }}
-            />
-            <div>
-              <h5
-                className="m-0"
-                style={{ color: "var(--textColor) !important" }}
-              >
-                Jens Kock
-              </h5>
-              <h6
-                className="m-0"
-                style={{ color: "var(--textColor) !important" }}
-              >
-                IT-Consulting & Services
-              </h6>
-            </div>
-          </div>
+          <img
+            src="/jk.svg"
+            width="45"
+            height="45"
+            alt=""
+            style={{
+              position: "relative",
+              top: "-2px",
+              scale: "1.2",
+              marginRight: "8px",
+            }}
+          />
         </Link>
         {/* <button
           className="navbar-toggler"

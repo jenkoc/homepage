@@ -1,14 +1,14 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://api.jenskock.de/api/v1",
+  baseURL: `${window.location.origin}/api/v1`,
 });
 
 axios.interceptors.response.use(
   (response) => response,
   (error) => {
     if (typeof error.response === "undefined") {
-        console.error("Network error");
+      console.error("Network error");
     }
     return Promise.reject(error);
   }
