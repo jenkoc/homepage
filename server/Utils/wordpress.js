@@ -69,7 +69,7 @@ const getFeed = async (type) => {
           link: "https://jenskock.de/about",
         },
       ],
-      date: post.date,
+      date: new Date(post.pubDate),
       image: post.image,
     });
   });
@@ -87,8 +87,8 @@ feed.addContributor({
     case "rss":
       return feed.rss2();
     case "atom":
+      console.log('test',feed.atom1());
       return feed.atom1();
-    case "atom":
     default:
       return feed.json1();
   }

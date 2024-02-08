@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocalStorage } from "react-use";
+import { appInsights } from "../appInsights";
 
 export function CookieBanner() {
   const [consent, setConsent] = useLocalStorage("cc", "x");
@@ -9,6 +10,11 @@ export function CookieBanner() {
   const handleClick = (value) => {
     setTransform("translateY(100%)");
     setTimeout(() => setConsent(value), 500);
+
+    if (value === "a") {
+      appInsights.loadAppInsights();
+      appInsights.trackPageView();
+    }
   };
 
   return (
@@ -30,10 +36,7 @@ export function CookieBanner() {
             We use cookies on our website. Some of them are essential, while
             others help us improve this website and your experience. For more
             information about the cookies we are using, please see our{" "}
-            <Link to="/cookiePolicy">
-              cookie policy
-            </Link>
-            .
+            <Link to="/cookiePolicy">cookie policy</Link>.
           </p>
         </div>
         <div className="align-items-end d-flex justify-content-end">

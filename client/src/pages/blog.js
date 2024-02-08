@@ -32,7 +32,7 @@ export default function Blog() {
   }, []);
 
   return (
-    <main>
+    <main className="m-4">
       <HelmentMetaTags />
       <div className="container-fluid mt-2" style={{ maxWidth: "1100px" }}>
         <div className="row no-gutters align-items-stretch">

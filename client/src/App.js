@@ -1,11 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-// Local Storage
-import { useLocalStorage } from "react-use";
-
-// Google Analytics
-import ReactGA from "react-ga4";
-
 import Home from "./pages/home";
 import Imprint from "./pages/imprint";
 import PrivacyPolicy from "./pages/privacyPolicy";
@@ -25,20 +19,14 @@ import { history } from "./history";
 // Cookie Banner
 import { CookieBanner } from "./components/cookieBanner";
 
-// Styles (Bootstrap)
-import "jquery/dist/jquery.min.js";
-import "bootstrap/dist/css/bootstrap.min.css";
+// Bootstrap
+import 'bootstrap/dist/js/bootstrap.bundle';
+
+// Styles
 import "./styles/bootstrap.scss";
 import "./App.css";
 
 function App() {
-  const [consent] = useLocalStorage("cc", "x");
-
-  if (consent === "a") {
-    const TRACKING_ID = "G-CVW64BR7TM";
-    ReactGA.initialize(TRACKING_ID);
-  }
-
   return (
     <div className="App">
       <BrowserRouter history={history}>

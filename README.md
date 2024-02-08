@@ -23,11 +23,15 @@ This project can be run anywhere, but VS Code is required for local debugging.
 
 1. Install front-end dependencies...
 
+cd into client folder
+
    ```bash
    npm install
    ```
 
 1. Run the web client project in the browser (automatically opens a browser window).
+
+cd into client folder
 
    ```bash
    npm run start

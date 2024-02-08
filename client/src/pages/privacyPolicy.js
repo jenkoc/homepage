@@ -167,31 +167,22 @@ export default function PrivacyPolicy() {
                     kann der Anbieter den Datenverkehr überwachen und
                     analysieren sowie das Verhalten von Nutzern nachverfolgen.
                   </p>
-
-                  <h5>
-                    Google Analytics (Universal Analytics) (Google Ireland
-                    Limited)
-                  </h5>
+                  <h5>Azure Application Insights</h5>
                   <div>
                     <p>
-                      Google Analytics (Universal Analytics) ist ein
-                      Webanalysedienst von Google Ireland Limited („Google“).
-                      Google verwendet die erhobenen Daten, um nachzuverfolgen
-                      und zu untersuchen, wie diese Anwendung genutzt wird,
-                      Berichte über ihre Aktivitäten zu verfassen und diese
-                      gemeinsam mit anderen Google-Diensten zu nutzen.
-                      <br />
-                      Google kann die erhobenen Daten verwenden, um die Anzeigen
-                      seines eigenen Werbenetzwerks zu kontextualisieren und
-                      personalisieren.
+                      Azure Application Insights ist ein Webanalysedienst von
+                      Microsoft. Azure Application Insights verwendet die
+                      erhobenen Daten, um nachzuverfolgen und zu untersuchen,
+                      wie diese Anwendung genutzt wird, Berichte über ihre
+                      Aktivitäten zu verfassen.
                     </p>
                   </div>
-
                   <p>
-                    Verarbeitete personenbezogene Daten: Nutzungsdaten; Tracker.
+                    Verarbeitete personenbezogene Daten: Nutzungsdaten und
+                    Tracker.
                   </p>
-
-                  <p>Verarbeitungsort: Irland</p>
+                  <p>Verarbeitungsort: Netherlands</p>
+                  <p> Speicherdauer: 2 Jahre</p>
                 </div>
               </div>
             </li>

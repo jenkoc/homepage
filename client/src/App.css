@@ -28,6 +28,10 @@
   /* --background: radial-gradient(circle at 18.7% 37.8%, #eeefe6 0%, #fff 90%); */
 }
 
+main {
+  min-height: 75vh;
+}
+
 .container {
   display: flex;
   justify-content: center;

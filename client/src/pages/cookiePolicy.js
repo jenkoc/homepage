@@ -1,7 +1,7 @@
 import HelmentMetaTags from "../components/helmetMetaTags";
 
 export default function CookiePolicy() {
-  document.title = 'JK - Cookie Policy';
+  document.title = "JK - Cookie Policy";
 
   return (
     <main className="m-4">
@@ -86,36 +86,22 @@ export default function CookiePolicy() {
                     kann der Anbieter den Datenverkehr überwachen und
                     analysieren sowie das Verhalten von Nutzern nachverfolgen.
                   </p>
-                  <h5>
-                    Google Analytics (Universal Analytics) (Google Ireland
-                    Limited)
-                  </h5>
+                  <h5>Azure Application Insights</h5>
                   <div>
                     <p>
-                      Google Analytics (Universal Analytics) ist ein
-                      Webanalysedienst von Google Ireland Limited („Google“).
-                      Google verwendet die erhobenen Daten, um nachzuverfolgen
-                      und zu untersuchen, wie diese Anwendung genutzt wird,
-                      Berichte über ihre Aktivitäten zu verfassen und diese
-                      gemeinsam mit anderen Google-Diensten zu nutzen.
-                      <br />
-                      Google kann die erhobenen Daten verwenden, um die Anzeigen
-                      seines eigenen Werbenetzwerks zu kontextualisieren und
-                      personalisieren.
+                      Azure Application Insights ist ein Webanalysedienst von
+                      Microsoft. Azure Application Insights verwendet die
+                      erhobenen Daten, um nachzuverfolgen und zu untersuchen,
+                      wie diese Anwendung genutzt wird, Berichte über ihre
+                      Aktivitäten zu verfassen.
                     </p>
                   </div>
                   <p>
                     Verarbeitete personenbezogene Daten: Nutzungsdaten und
                     Tracker.
                   </p>
-                  <p>Verarbeitungsort: Irland</p>
-                  <p> Speicherdauer: </p>
-                  <ul>
-                    <li>AMP_TOKEN: 1 Stunde</li> <li>_ga: 2 Jahre</li>{" "}
-                    <li>_gac*: 3 Monaten</li> <li>_gat: 1 Minute</li>{" "}
-                    <li>_gid: 1 Tag</li>{" "}
-                  </ul>{" "}
-                  <p></p>
+                  <p>Verarbeitungsort: Netherlands</p>
+                  <p> Speicherdauer: 2 Jahre</p>
                 </div>
               </div>
             </li>
