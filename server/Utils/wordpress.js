@@ -2,7 +2,7 @@ const axios = require("axios");
 const xml2js = require("xml2js");
 const Feed = require("feed").Feed;
 
-const getBlogPosts = async () => {
+const getBlogPosts = async (category) => {
   try {
     const response = await axios.get("https://jenskock5.wordpress.com/feed");
     const parser = new xml2js.Parser();
@@ -11,17 +11,24 @@ const getBlogPosts = async () => {
         if (err) {
           reject(err);
         } else {
-          const posts = result.rss.channel[0].item.map((post) => {
+          const posts = result.rss.channel[0].item.map((p) => {
             return {
-              id: post.link[0].split("/")[post.link[0].split("/").length - 2],
-              title: post.title[0],
-              link: post.link[0],
-              description: post.description[0],
-              pubDate: post.pubDate[0],
-              content: post["content:encoded"][0],
+              id: p.link[0].split("/")[p.link[0].split("/").length - 2],
+              title: p.title[0],
+              link: p.link[0],
+              description: p.description[0],
+              pubDate: p.pubDate[0],
+              content: p["content:encoded"][0],
+              category: p.category.map((c) => {
+                return { name: c };
+              }),
             };
           });
-          resolve(posts);
+          if (category) {
+            resolve(posts.filter((p) => p.category.some((c) => c.name === category)));
+          } else {
+            resolve(posts);
+          }
         }
       });
     });
@@ -51,6 +58,11 @@ const getFeed = async (type) => {
       email: "mail@jenskock.de",
       link: "https://jenskock.de/about",
     },
+    feedLinks: {
+      json: "https://jenskock.de/blog/json",
+      atom: "https://jenskock.de/blog/atom",
+      rss: "https://jenskock.de/blog/rss",
+    },
   });
 
   const posts = await getBlogPosts();
@@ -71,6 +83,7 @@ const getFeed = async (type) => {
       ],
       date: new Date(post.pubDate),
       image: post.image,
+      category: post.category,
     });
   });
 
@@ -87,7 +100,7 @@ feed.addContributor({
     case "rss":
       return feed.rss2();
     case "atom":
-      console.log('test',feed.atom1());
+      console.log("test", feed.atom1());
       return feed.atom1();
     default:
       return feed.json1();

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className="p-4">
       <div className="row">

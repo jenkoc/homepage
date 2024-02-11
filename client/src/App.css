@@ -222,7 +222,6 @@ p {
 .comment {
   float: left;
   border-radius: 5px;
-
 }
 
 .comment h4, .comment span, .darker h4, .darker span {
@@ -231,4 +230,17 @@ p {
 
 .comment p, .comment span, .darker p, .darker span {
   color: rgb(184, 183, 183);
+}
+
+.bento {
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 20px 20px 60px #e0e0e0;
+  overflow: hidden;
+}
+
+.bento-gradient {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }

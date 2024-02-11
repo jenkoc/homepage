@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useLocalStorage } from "react-use";
 import { appInsights } from "../appInsights";
 
-export function CookieBanner() {
-  const [consent, setConsent] = useLocalStorage("cc", "x");
+const CookieBanner = () => {
+const [consent, setConsent] = useLocalStorage("cc", "x");
   const [transform, setTransform] = useState("translateY(0)");
 
   const handleClick = (value) => {
@@ -59,3 +59,5 @@ export function CookieBanner() {
     </div>
   );
 }
+
+export default CookieBanner;

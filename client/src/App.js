@@ -17,7 +17,10 @@ import Footer from "./components/footer";
 import { history } from "./history";
 
 // Cookie Banner
-import { CookieBanner } from "./components/cookieBanner";
+import CookieBanner from "./components/cookieBanner";
+
+// Scroll to top
+import ScrollToTop from "./components/scrollToTop";
 
 // Bootstrap
 import 'bootstrap/dist/js/bootstrap.bundle';
@@ -30,6 +33,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter history={history}>
+        <ScrollToTop />
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />

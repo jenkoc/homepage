@@ -13,7 +13,7 @@ export default function Home() {
   React.useEffect(() => {
     getBlogPosts()
       .then((response) => {
-        setPosts(response.data);
+        setPosts(response.data.slice(0, 3));
       })
       .catch(() => {
         setLoading(false);
@@ -23,35 +23,13 @@ export default function Home() {
       });
   }, []);
 
-  const bentoClass = "p-3 my-2";
-  const bentoStyle = {
-    minHeight: "300px",
-    borderRadius: "20px",
-    background: "#fff",
-    boxShadow: "20px 20px 60px #e0e0e0",
-    overflow: "hidden",
-  };
-
-  const bentoGradientStyle = {
-    minHeight: "300px",
-    borderRadius: "20px",
-    background: "linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)",
-    backgroundSize: "400% 400%",
-    animation: "gradient 15s ease infinite",
-    boxShadow: "20px 20px 60px #e0e0e0",
-    overflow: "hidden",
-  };
-
   return (
     <main>
       <HelmentMetaTags />
       <div className="container-fluid mt-2" style={{ maxWidth: "1100px" }}>
         <div className="row no-gutters align-items-stretch">
           <div className="col-sm-8 d-flex flex-column">
-            <div
-              className={`${bentoClass} bento-bg flex-grow-1 justify-content-center align-items-center text-center`}
-              style={bentoStyle}
-            >
+            <div className="flex-grow-1 justify-content-center align-items-center text-center p-3 my-2 bento">
               <img src="logo.svg" width="200" height="200" alt="logo" />
               <h3
                 className="fadein-1 text-left ms-4"
@@ -67,9 +45,7 @@ export default function Home() {
           </div>
           <div className="col-sm-4 d-flex flex-column">
             <div
-              className={`${bentoClass} bento-bg d-flex flex-grow-1 justify-content-center align-items-end`}
-              style={bentoStyle}
-            >
+              className="d-flex flex-grow-1 justify-content-center align-items-end p-3 my-2 bento">
               <img
                 src="/memoji-hi.png"
                 width="250"
@@ -86,9 +62,7 @@ export default function Home() {
         <div className="row no-gutters">
           <div className="col-sm d-flex flex-column">
             <div
-              className={`${bentoClass} d-flex justify-content-center align-items-center flex-grow-1 text-center`}
-              style={bentoGradientStyle}
-            >
+              className="d-flex justify-content-center align-items-center flex-grow-1 text-center p-3 my-2 bento bento-gradient">
               <div>
                 <SkillImage title="HTML" src="/html.svg" />
                 <SkillImage title="Java Script" src="/javascript.svg" />
@@ -108,15 +82,12 @@ export default function Home() {
                 <SkillImage title="Microsoft Dynamics NAV" src="/nav.svg" />
                 <SkillImage title="Azure SQL" src="/azure-sql.svg" />
                 <SkillImage title="Mongo DB" src="/mongodb.svg" />
-                <div className="text-white">...</div>
               </div>
             </div>
           </div>
           <div className="col-sm d-flex flex-column">
             <div
-              className={`${bentoClass} flex-grow-1 d-flex flex-column justify-content-center`}
-              style={bentoStyle}
-            >
+              className="flex-grow-1 d-flex flex-column justify-content-center p-3 my-2 bento">
               <CTAButton
                 title="Send me an email"
                 href="mailto:mail@jenskock.de"
@@ -141,7 +112,7 @@ export default function Home() {
             </div>
           </div>
           <div className="col-sm d-flex flex-column">
-            <div className={`${bentoClass} flex-grow-1`} style={bentoStyle}>
+            <div className="flex-grow-1 p-3 my-2 bento">
               <Link to="/blog">
                 <div className="d-flex justify-content-center">
                   <h5 className="me-1">Blog</h5>
@@ -184,7 +155,7 @@ export default function Home() {
                     >
                       <div className="comment mt-1 text-justify">
                         <h5 className="text-muted">{post.title}</h5>
-                        <p>{new Date(post.pubDate).toLocaleString()}</p>
+                        <small>{new Date(post.pubDate).toLocaleString()}</small>
                       </div>
                     </Link>
                   );
@@ -196,9 +167,7 @@ export default function Home() {
         <div className="row no-gutters">
           <div className="col-sm-4 d-flex flex-column">
             <div
-              className={`${bentoClass} d-flex flex-column flex-grow-1 justify-content-end align-items-center`}
-              style={bentoStyle}
-            >
+              className="d-flex flex-column flex-grow-1 justify-content-end align-items-center p-3 my-2 bento">
               <div>
                 <a
                   className="link-dark"
@@ -241,9 +210,7 @@ export default function Home() {
           </div>
           <div className="col-sm-8 d-flex flex-column">
             <div
-              className={`${bentoClass} flex-grow-1 text-center`}
-              style={bentoStyle}
-            >
+              className="flex-grow-1 text-center p-3 my-2 bento">
               <h5>About me</h5>
               <p>
                 Hi, I'm Jens and my enthusiasm for everything to do with
