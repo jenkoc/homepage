@@ -1,5 +1,5 @@
 const express = require("express");
-const { getBlogPosts, getFeed } = require("./Utils/wordpress");
+const { getBlogPosts, getFeed } = require("./Utils/content");
 const {
   initAppInsights,
   trackEvent,

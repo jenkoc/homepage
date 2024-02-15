@@ -34,9 +34,9 @@ export default function Blog() {
   }, [categoryFilter]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <main className="m-4">
+    <main className="mt-4">
       <HelmentMetaTags />
-      <div className="container-fluid mt-2" style={{ maxWidth: "1100px" }}>
+      <div className="container-fluid mt-2" style={{ maxWidth: "740px" }}>
         <div className="d-flex flex-wrap mb-2">
           <CategoryPill
             name="All"

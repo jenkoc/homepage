@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet";
 const HelmetMetaTags = ({ title, description, url }) => {
   if (!description)
     description =
-      "Explore Jens Kock's blog to uncover cutting-edge IT solutions and consulting expertise.";
+      "Jens Kock’s blog about development and technical consulting insights.";
 
   if (description?.length > 55) description = description.slice(0, 55) + "...";
   

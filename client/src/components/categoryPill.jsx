@@ -32,7 +32,7 @@ const CategoryPill = ({ name,active, onClick }) => {
 
   return (
     <button
-      className={`d-flex align-items-center justify-content-center rounded border-0 ps-1 pe-1 me-1 mt-1 ${active ? "bg-primary text-white" : "text-muted"}`}
+      className={`d-flex align-items-center justify-content-center rounded border-0 ps-1 pe-1 me-1 mt-1 ${active ? "bg-primary text-white" : "bg-light text-muted"}`}
       onClick={onClick}
     >
       <img

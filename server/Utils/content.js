@@ -1,38 +1,37 @@
-/* const axios = require("axios");
-const xml2js = require("xml2js");
-const Feed = require("feed").Feed;
+const axios = require("axios");
+const fs = require("fs");
+const path = require("path");
 
 const getBlogPosts = async (category) => {
   try {
-    const response = await axios.get("https://jenskock5.wordpress.com/feed");
-    const parser = new xml2js.Parser();
-    return new Promise((resolve, reject) => {
-      parser.parseString(response.data, (err, result) => {
-        if (err) {
-          reject(err);
-        } else {
-          const posts = result.rss.channel[0].item.map((p) => {
-            return {
-              id: p.link[0].split("/")[p.link[0].split("/").length - 2],
-              title: p.title[0],
-              image: p["media:content"][0]["$"].url,
-              link: p.link[0],
-              description: p.description[0],
-              pubDate: p.pubDate[0],
-              content: p["content:encoded"][0],
-              category: p.category.map((c) => {
-                return { name: c };
-              }),
-            };
-          });
-          if (category) {
-            resolve(posts.filter((p) => p.category.some((c) => c.name === category)));
-          } else {
-            resolve(posts);
-          }
-        }
-      });
-    });
+    const files = await fs.promises.readdir("data");
+    const jsonFiles = files.filter(
+      (file) => path.extname(file).toLowerCase() === ".json"
+    );
+    let posts = [];
+
+    for (const file of jsonFiles) {
+      const filePath = path.join("data", file);
+      const data = JSON.parse(await fs.promises.readFile(filePath, "utf-8"));
+
+      const htmlFilePath = path.join(
+        "data",
+        "html",
+        file.replace(".json", ".html")
+      );
+      if (fs.existsSync(htmlFilePath)) {
+        const htmlContent = await fs.promises.readFile(htmlFilePath, "utf-8");
+        data.content = htmlContent;
+      }
+
+      posts = [...posts, data];
+    }
+
+    if (category) {
+      return posts.filter((p) => p.category === category);
+    } else {
+      return posts;
+    }
   } catch (error) {
     throw error;
   }
@@ -105,4 +104,3 @@ module.exports = {
   getBlogPosts,
   getFeed,
 };
- */

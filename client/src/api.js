@@ -27,7 +27,6 @@ async function getBlogPost(id) {
   return api.get(`/blogposts/${id}`);
 }
 
-/*
 function getMockBlogPost(id) {
   const posts = getMockBlogPosts();
   return { data: posts.data.filter((p) => p.id === id)[0] };
@@ -38,6 +37,7 @@ function getMockBlogPosts(category) {
     {
       id: "post1",
       title: "Demo Post 1",
+      image: "https://picsum.photos/500/200",
       description:
         "This is a demo description for post 1. Explore the latest insights and updates.",
       category: [
@@ -222,6 +222,5 @@ function getMockBlogPosts(category) {
     return { data: posts };
   }
 }
-*/
 
 export { getBlogPosts, getBlogPost };

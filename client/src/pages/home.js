@@ -113,7 +113,7 @@ export default function Home() {
           </div>
           <div className="col-sm d-flex flex-column">
             <div className="flex-grow-1 p-3 my-2 bento">
-              <Link to="/blog">
+              <Link to="/blog" className="text-decoration-none">
                 <div className="d-flex justify-content-center">
                   <h5 className="me-1">Blog</h5>
                   <img
