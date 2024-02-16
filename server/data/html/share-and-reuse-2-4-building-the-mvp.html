@@ -1,19 +1,17 @@
 <p>
   In the second part of the series, we dive into the heart of our journey with
-  <strong>COSMO Loop</strong>, moving from the idea to the tangible creation of
-  the MVP. The challenge was clear: How do we transform the theoretical
-  framework of <strong>COSMO Loop</strong> into a functioning tool that lives up
-  to our vision of seamless knowledge sharing, while also upholding the
-  stringent privacy requirements dictated by our NDAs and EU privacy
-  regulations? This post explores the process of designing, developing, and
-  iterating the MVP of <strong>COSMO Loop</strong>.
+  COSMO Loop, moving from the idea to the tangible creation of the MVP. The
+  challenge was clear: How do we transform the theoretical framework of COSMO
+  Loop into a functioning tool that lives up to our vision of seamless knowledge
+  sharing, while also upholding the stringent privacy requirements dictated by
+  our NDAs and EU privacy regulations? This post explores the process of
+  designing, developing, and iterating the MVP of COSMO Loop.
 </p>
 <h3>Designing the MVP</h3>
 <p>
-  The cornerstone of <strong><strong>COSMO Loop</strong>'s</strong> MVP was to
-  incorporate a set of core functionalities that would serve as the foundation
-  for our vision. The features were carefully chosen to address the primary
-  objectives.
+  The cornerstone of COSMO Loop's MVP was to incorporate a set of core
+  functionalities that would serve as the foundation for our vision. The
+  features were carefully chosen to address the primary objectives.
 </p>
 
 <h5>Search Across All DevOps Organizations</h5>
@@ -78,7 +76,7 @@
 <h3>ETL Process</h3>
 <p>
   The following diagram outlines the architecture and process flow for the ETL
-  system used in the <strong>COSMO Loop</strong>.
+  system used in the COSMO Loop.
 </p>
 <iframe
   frameborder="0"
@@ -106,10 +104,9 @@
   Data is extracted from Azure DevOps, specifically from two types of storage
   within it:
   <strong>Work Items</strong>
-  are the basis of <strong>COSMO Loop</strong>. The export takes all kinds of
-  Work Item Types into account, not just user stories.
-  <strong>COSMO Loop</strong> also scans the <strong>repos</strong> of the
-  organization for specific information.
+  are the basis of COSMO Loop. The export takes all kinds of Work Item Types
+  into account, not just user stories. COSMO Loop also scans the
+  <strong>repos</strong> of the organization for specific information.
 </p>
 <h5>Data Transformation</h5>
 <p>
@@ -125,10 +122,10 @@
 <h5>Azure Cognitive Service</h5>
 <p>
   The Azure Cognitive Service is utilized for its
-  <strong>Personally Identifiable Information (PII) Detection</strong>
+  <strong>Personally Identifiable Information (PII) Detection</strong> and other
   capabilities. This is likely integrated with the anonymization step in the
   Azure Function to ensure that all PII is identified and handled appropriately.
-  identified PPIs are getting repalced with a placeholder.
+  Identified PPIs are getting repalced with a placeholder.
 </p>
 <h5>Azure Blob Storage</h5>
 <p>
@@ -139,7 +136,7 @@
 <h3>Data Visualization</h3>
 <p>
   The flowchart shows the frontend architecture and interaction with the backend
-  services for the <strong>COSMO Loop</strong>.
+  services for the COSMO Loop.
 </p>
 <iframe
   frameborder="0"
@@ -149,8 +146,8 @@
 <h5>React App</h5>
 <p>
   The React App is hosted on an Azure App Service, which is the client-facing
-  part of <strong>COSMO Loop</strong>. The React App is composed of several
-  components that interact with the backend services.
+  part of COSMO Loop. The React App is composed of several components that
+  interact with the backend services.
 </p>
 <ul>
   <li>
@@ -159,8 +156,8 @@
     search query and filters, sorted by relevance.
   </li>
   <li>
-    <strong>Suggest</strong> <strong>COSMO Loop</strong> is showing suggestions
-    while the user types in the search bar, like i.e. Google does.
+    <strong>Suggest</strong> COSMO Loop is showing suggestions while the user
+    types in the search bar, like i.e. Google does.
   </li>
   <li>
     <strong>Lookup</strong> With the lookup, a user can select a specific search
@@ -184,9 +181,7 @@
   The Search API acts as a middleware between the frontend and Azure Cognitive
   Search. The Azure Function is secured with out of the box Azure AD
   <strong>Authentication</strong>, to ensure that only Cosmo Consult Employees
-  have access. <strong>Azure Cognitive Search</strong>his is the
-  search-as-a-service cloud solution that provides indexing and querying
-  capabilities. The data used for search operations is indexed in
+  have access. The data used for search operations is indexed in
   <strong>Azure Cognitive Search</strong>. The Search API queries this index to
   fetch the search results.
 </p>
@@ -194,20 +189,9 @@
 <h3>Feedback and Iteration</h3>
 <p>
   With the core components of the MVP in place, we initiated a pilot program
-  with early adopters within Cosmo Consult. The response was overwhelmingly
-  positive, and traction grew rapidly. The early feedback we received was
-  invaluable, enabling us to refine and improve
-  <strong>COSMO Loop</strong> iteratively. This phase was crucial, as it allowed
-  us to address any issues and enhance the tool's functionality based on
+  with early adopters within Cosmo Consult. The response was quite positive, and
+  traction grew rapidly. The early feedback we received was invaluable, enabling
+  us to refine and improve COSMO Loop iteratively. This phase was crucial, as it
+  allowed us to address any issues and enhance the tool's functionality based on
   real-world use and user experiences.
-</p>
-<p>
-  The journey from concept to reality was fraught with challenges, but through
-  innovative solutions and a commitment to our vision, we were able to bring
-  <strong>COSMO Loop</strong> to life. As we continue to evolve and expand the
-  capabilities of <strong>COSMO Loop</strong>, the lessons learned during the
-  MVP phase remain at the forefront of our development strategy. Stay tuned for
-  the next part of our series, where we will explore the current status of
-  <strong>COSMO Loop</strong> and how it has become an integral part of our
-  knowledge-sharing ecosystem at Cosmo Consult.
 </p>
