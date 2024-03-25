@@ -1,197 +1,23 @@
-<p>
-  In the second part of the series, we dive into the heart of our journey with
-  COSMO Loop, moving from the idea to the tangible creation of the MVP. The
-  challenge was clear: How do we transform the theoretical framework of COSMO
-  Loop into a functioning tool that lives up to our vision of seamless knowledge
-  sharing, while also upholding the stringent privacy requirements dictated by
-  our NDAs and EU privacy regulations? This post explores the process of
-  designing, developing, and iterating the MVP of COSMO Loop.
-</p>
-<h3>Designing the MVP</h3>
-<p>
-  The cornerstone of COSMO Loop's MVP was to incorporate a set of core
-  functionalities that would serve as the foundation for our vision. The
-  features were carefully chosen to address the primary objectives.
-</p>
+<p>In this third post of our series, we turn our attention to the current state of COSMO Loop and its practical impact on our work at Cosmo Consult. Since its introduction, COSMO Loop has steadily grown into a key component of our daily operations, thanks to its consistent use by our team members. The focus of COSMO Loop has always been to streamline the sharing of resources and knowledge across our diverse projects and teams. The user engagement statistics we’ve collected not only show that the tool is being used regularly but also that it’s becoming an integral part of our project workflows.</p>
 
-<h5>Search Across All DevOps Organizations</h5>
-<p>
-  The MVP needed to enable search functionality across all DevOps organizations
-  within Cosmo Consult, ensuring that any piece of information could be easily
-  found by our Cosmonauts.
-</p>
-<h5>Access Limited to Cosmonauts</h5>
-<p>
-  Access control was a critical aspect. The system was designed to be accessible
-  to all Cosmonauts but not to external parties, maintaining the integrity and
-  privacy of our internal operations.
-</p>
-<h5>Respect for NDAs and Privacy Regulations</h5>
-<p>
-  Adherence to NDAs and EU privacy restrictions was non-negotiable. The MVP had
-  to ensure that all shared and searchable content complied with these legal and
-  ethical standards.
-</p>
-<h3>Development Challenges</h3>
-<p>
-  Turning these requirements into reality was no small feat, especially
-  considering the vast scale of our tenant, with hundreds of DevOps
-  organizations. The initial idea of direct queries to the DevOps API proved to
-  be impractical and inefficient. This led us to find an alternative approach.
-</p>
-<h5>Getting Access to all DevOps Orgaizations</h5>
-<p>
-  Even if a DevOps Organization is connected to a specific AD, it does not
-  include any access rights. So there is no user or way to access all
-  organizations with a single user by default.
-</p>
-<h5>Introduction of an ETL Process</h5>
-<p>
-  To manage the sheer volume of data, we develop an Extract, Transform, Load
-  (ETL) process. This process involves scanning, exporting, and enriching work
-  items before storing them. This method ensures efficient data handling and
-  organization.
-</p>
-<h5>Utilizing Azure AI Services for PII Extraction</h5>
-<p>
-  Privacy is paramount. To ensure that personally identifiable information (PII)
-  is appropriately handled, we leverage Azure AI services. This allows us to
-  extract and manage PII from work items, aligning with our commitment to
-  privacy and data protection.
-</p>
-<h5>Search Functionality with Azure Cognitive Search</h5>
-<p>
-  For the search component, we chose Azure Cognitive Search. This decision was
-  driven by its powerful indexing and search capabilities, which allowed us to
-  create a robust and responsive search experience.
-</p>
-<h5>Technology Stack</h5>
-<p>
-  The ETL process is written in JavaScript and deployed to several Azure
-  Functions, which also act as the backend for COSMO Loop. For the frontend, we
-  opt for a lightweight React application, utilizing Bootstrap and Fluent UI
-  framework. This choice is made to achieve a "Microsoft-like" UI, providing a
-  familiar and intuitive user interface for our Cosmonauts.
-</p>
-<h3>ETL Process</h3>
-<p>
-  The following diagram outlines the architecture and process flow for the ETL
-  system used in the COSMO Loop.
-</p>
-<iframe
-  frameborder="0"
-  style="width: 100%; height: 400px"
-  src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.drawio#R7XxXs6O42u6vmapzLqaLHC5FBptoY4NvviIbTDAZ%2B9cfaYWe7l49ac%2Be8O19VnWvhQRI4k3P8wqJH0ix2dQhul%2FNLs3qHwgs3X4gpR8IAidxCv5BNY%2FXGo4mXyuKoUzfLvqp4lA%2Bs7dK7K12LtNs%2FOrCqevqqbx%2FXZl0bZsl01d10TB069eX5V39da%2F3qMg%2BVBySqP5Yey7T6fpWizP8Tye0rCyub11zBPt6ooneL357kvEapd36RRUp%2F0CKQ9dNr0fNJmY1Et67XF7vU37m7OeBDVk7%2FZYbfiR56cIpzzA%2BY9fh2oVJPfz41soS1fPbA4v2wbRh1b7r7m8Dnx7v0hjXsqmjFpaE69TUsBKHh8m1rNN99OhmNJBxipLbe0mApWF6UyscICkM3dymGRoTKn0WCirUUZzVAry7eLlI7OpugKfa7qXDcRq622clQPEJeddOStSUNbKtUzakURu9Vb%2F1yMFiVJdFC48TKKcMtid8FNy7FLJhyrYvqt4EqWZdk03DA17ydpZ60%2Bnj6%2BL6hYWQ73q%2FfmEdDPZWGb2ZZfG56Z80Bw%2FelPc7FEl8UCR4zkMGq5S5Taaya3%2BjMj8o7KPcPwrwF23r16X6JkbioxhJ8jtSpLlfkOJb6x4MBlFb1NkvNk99p3WW%2FKb1qIZ200ZTJiCrHD%2Bo6vOD%2FOvaYz5oT4qQWROYvN27Yfqou2t0R4f3oUuyEQ5UWK%2FllB3uUYKqVxiMv1Zr%2FNmt7HmqS6T1N3X%2Fi9olfrN2389i1Cf%2Bq5%2BvfAjnvuNE3%2FehP8mF6A9K%2BCB2JMH7nyG1zwAWxe99Yb8sTZz%2FxLBfSZD8KEAegxdhP%2F0QH8WJ4%2F8GeRojRqutyFh953QxqXiErP5I%2Fro83824bF5gWEByKSH47hESON1YvgQuUoq7aeqan4eINMujuZ6%2BaAG8Rf2pQ%2FqKxvsrOcjLDWGP8NIheK%2FF3mvg8XWaELUA6NkJpfz0AmefyqaYh08JHAOhmM26Ep%2FubfFHDIH%2BGUP4WYUT36gSZ34NgtjvBbc%2FS9kficQHZb8r%2BYMyvghT965sp5ex0cIPtPQ9%2BP4C3nHiC8VBFcGR12UMf0cI%2B9ATQY3d5wmCgPIOg%2F8D7vfx07j8Rdr71hk%2FquSXwOwPxTP%2Bg0rSbEKSh6jSTuUEe4ANY04dTXk3NK%2BlT58%2B%2FWeADf0Jw7%2FyEOJvBxj8I8xHkNw%2BGmTN%2FylCx34W4cm%2FXwEfXeKeDWM5%2FocQrF8UP%2FVXij%2BrWQfvfiTcgD0t3vFQtm30jhFfSDlLYbL9VoQ099oVXRvV8k%2B136SLP13zkp6%2BSrjKpunxhgjRPHVf6yXbyilAt3%2Bi30rhF2ek7a3ll8LjrZDX3QpaCCxv9OPl6haK4IuGUDF8vxkVfmrqpfTe1h%2FV%2F9jNQ5L9epiHaVuR%2FWI69hZ9kMx%2F0ZyGDCJCuXw9AfILqZaDMPsnM6Rp%2Bmu3J76xp9cnervrywmLbxoiyF9p6PWRPzT0LyRl3zVX8v%2Bb659gru9m%2BOv2yv819voe7t7D5Lfh77ea6%2Be5nZ9r6N9nrt%2BV18d0630GSMoW%2Bz5%2BhLh%2FzPzP29nPkz3%2FzvmgP5TVUB9k%2BrNE4R%2Bbwq7r%2Bqkbokddjp9SlAmt9x8TmEMh5RHKfK%2B7CE1qKQSG1KNgzHv%2B9GOaLd19%2FLGGIeyPprvk77UFnCA%2BkdQX%2Be43WPDRNDj6E0l%2BNI4%2FLb1iP9jGuRtusEafsuY73vZmJwlUBISIgfwNlPIVTPbxr3LMt3SY%2FmtV9A0%2B4%2BxHpTDfcdc%2FTSPv3vmFSrzs3v036ILAv9YF8Xfr4mPkfEcjsSva8gWvCeyQDUuZfCf5%2FadBE8P8jdD0%2FUf434lNaTRFEJpei4SCYIUQy5Ngeyu2U4sOwB%2Fr4F9lv4BH6D%2FQgQhM%2BFeS7uVRRzUgsA4epoNhpBLGRRVe6%2Fq4AIC4VevCha4P64TKlzffcwUaL648cRUF4loqRCkaZFlaZCV6ZFWeqJt4oW5lStXila6bmm7Unm6amWlVgmkbhmmh8rvzD4TAdqTK3oMdeydtrg8OXM%2BeuSGOuIHN%2BDEu%2BZFt%2BCnu4aUTO8Pfc%2FxAv1niFYhj5vXv53%2BEQY5rgoZ%2FTRXD9r85%2Fdf%2FAwb8JWCijMZkJPL1kqxQ2HIIgLKpwDv4LgbPCc168D3hpFURm5KX4n7fKSBwwyvwFE%2F2%2FCR%2BbY67d3famo0eM2xTyvawKq%2BNWgmVm2%2Fd8VIZpM6sYQ8yEFCP8Jf7X3cMbTYAr5XgTRK%2F7di4BtjsXvojtLELVJyQFKKO7E5Zj4Id3MAqbAdjpy1zvRA2HbEwzgg7X%2BKwyd6Xo8Fe2EVaQaE%2BDhwv42cNniau8HZxKpblcrnw1WyqExxmn4UuC%2F1UcOYxJHN4yUnQ9zSLOt2bhlYIwGhrbATe3LYNVS%2FQWxRdYsOjVBIt1O%2F1nKNBHiDhFDhugyNWFifmH1ijZnMIRhEr8%2BxhEfybX3TcvqCPjyrswVl8QGRTWM8f7iSO3Cnrk4S7uGCF%2BSw0qPB0eBxWoWBlN%2FbKeoYxo7oPz7BSesJ0RTPNJ6nEVVNeHbAzYQ9CM6BH6LczBTipcAJYFfgJtQmUIGzwzMOutMqUgageiAJ58NQmQBXDuzISFVnQADw3uoH1jzk5mEAWyPJKxD4ZKsC%2B8jybh4u6T4EstRTLlyM3X6EMU%2Bf12dr7Zc2BGvNnXOsFDtbI6Sq6CxLQogYZUVjVvPPXHdAK8nlPOYNYEkTLfUjnBYFqbYV%2BArW6aUWmbd0%2Bc3H1PJALEmkmqvtDb2tbAh%2BMYFB89dkTGSZL%2B9o57ulCDrAgcNWi0hmeeXZ25SKlrEaF9E93Qm3l%2FEwH3G6VVuaaZSPtiyXgcr5VR9jsUBLxAHAxcVbY4Di4IUBqWLS5EG8eTVuBOIqcvbrGPAo3TbKZHj6Las1zQaGERJyZUxGB8WTTORAvq8wkuKsUp2FbgX5aTCBQM9UVAQz0q%2Bfz0XoElWOVIDqUD7YOxEy6qMkD%2FhVGE0iFChUmIDP0JBCc9ZbGO6FyXMYUezDyrs6cO2FUCWIHRGVbBfgAqrsHFQgCveXh05qiFUm6BJ8CFNimhEInPXSJ388NBZ7iGICd4BLmzKeFZD7OiaMr5p1iPQaYT%2FtSsEV3OurCClTlCMRC9ibrwQFJvEPwA2SxyUq4h07klofDJo2BOk%2FgWiEjfnI%2B2KWeeaQsJ7Ctz7U6cPIDEduwAH1Oofem3GksCsqrVPDo5aN0APxNOFa1BJRuRkYVgWDtKLo8GplkSZjYU0zTK5SEZ4HEe8NJYkzOcndMfdvxZwBoJ2D6giiuCV2cC1xxrOMhAWSr4YQIjHVfWVCBme9aqzoET%2FMmmSmM%2F89ujYCh0mmki9Z8GoF5MNVC3KgBlwXv2YASPHtXpo7lKYyZ3QVo4AK9b05si%2B6mm%2FVQQ0FXJRlYVTpdyocB2nKZ7CK60Poo4i2wJbsE8mq3FLkFwau5Pht8Jo%2Bc9Gwt%2BaDmTockGxV5qu46S9tDWBXSJ%2BOGNxpoo3qUYfxZmvS%2BkpfYI6mquIG0qBMXkF6BA8x50hm5Spt%2FiAvBmsDuZEmhdIKNmC22r3c4O1gd6FYtcsUogMQNgJI2mMZEnv6IChGvAfJBCT53RaHYdxuvd6dwcQt4uQi0Q87sXDtUUHRReSa3rTTMZOtp7crqhI3qqp89gEso6T4%2B5Paakk0hYU%2B37YQe1R4FHgf72l0Y1gvZgyG2hSt44JEUQrKemRThpwQakWKbAqi25e3VRLgkupTL9UDU5VGILrtguxS3wpBgTyLrF4FmU3eKyylOXTjMpZKyEBWbP5mqv59znJFV4r73nqxpia4edkCBbEk0nEmvc3zZHsqyHww9A%2FpYAlum89vyIIjclowRDC5Q1eP1JJxFo4LC2AxozCxHjOIE9qHvem7MCxYVZrCn58VyZQacD6beScym37a9LpT4vpEkqDXndgPTUoF2NC7V1HROooaKLgrHNsyXzepuRrdXg2J0RRuUliz7ejmfBvu078zn8LgAnQK874po8iLwWg7Fc2%2FtJzd4biKQe2mnS5E%2B9T61cl07%2B2x0tV1sVdYQc4UAuBoongrHPp1w1XUGAMoH51XBn6VP8OeY09hAuR89hBshMFwNvWR2hXFXiKbcbyl91ijQk0FsXrTWh8x1VVxz14EGkJ3bDPC2tndbOw0aHalYaWPoSmoxW1cMHBF0X1EipERHM8gZYnEID2O7NU2t60GjJC1MhF6cO7DXNcHu7Y0L6eVKAmbrBP3I0UfwKKvwkoqRVYTYUN7LRGMfo4QLqmRBLyd9Vxnv6xnFeN908mYE2H5TT5RD0pxLL55qYhsWUdemEEqQhYcmqUbi%2BozYx5JPJzhQG%2BTanNw7f9VuD%2BDIXYhTDNi7zTHfzRcU%2BRv9OPPOowGs74LbXe57tbjLlpLZrTIwQxC9RmgsiwEFcIMSxgJkHYPzmLsrIk4aT9Q5PFFEyBdgzZn2GLlqsq2ZyyY5m7X9zrMJlkY4LIY2cp5iFqJexNfGiwCV5RUYK96MUci8V8ZGVdyxCNo0cmVOdI9KBqQdxha4pfmn8uqmlpBeSMnHgXkxz%2B5eBDZd1dALBV9ch1t35boOmgJoi8CkQSc8EJXRDaLpFJEmWEND5OXgChTfHqXV1RKDKcOu56MZKlCYvdLdVgxCADG73K4zHregG1Ru1U1yPGVNJiXG1QdPZjpJIC%2BsGykYO1zbFgHNxQkwAxCsEMpcvahglbv78657r%2BK7%2BinbnojI0ClTB2dhbFZK0CHIXnb7BiKwYJs%2Bo9E0xlnr3k53rC8ddiF7qgN2vSiIrdgxE%2Bz8s7UBaZWi%2B6UQAzHhHTWTuvN%2BYWmr7GuFDL0CA%2BZjlwLzbuwI30rIK8YhcOpoDPK%2FezrTYyFkCkP41xmE43xGw5NOxzsDPaLJYl89bKbiRSd5cF2RqyjNgaB%2BrLEugUir%2BgAiuj6egQXVhXESsNvxQPoAy4455G5%2BVvXKrpPu7JMDuz25XNQOiBbiZUABMa%2BVHcRkxD1WBYyHibqtKaAWClKBrjy7AGMrDkQOjZFA1EmNg9B8AXsKDIASDaCUM2THgSG3dpHxs7DFrvAAOFDBAezj%2FGxFJ28bCEo%2BlAB0DJL9eRRDkKaALWo%2B52EIYIC9hkBf7VXrn76s4BA5FoIAJIw1LR1hyrrLUye8a7draUDmdxCYeMZXFDgErdnCfvPLHd4e99CL1PthHirc53kYmexW0oWFqS5BVBzH4moBN5u5QJnny2iPwCgMmt%2BPSxLlfsmB8J6HurNRWHEEVIocTJkHttEw4Db3IOW6R7UzQSKfCO5R8UDQbYgtBpsNqiJFneRWQJkW657rkhU7DnDi29AwQ65xEVsT18ZwhUbW4%2BzQ4xj1IGnIESyyg2LfQ8ty9mw8pYtnFENh1I%2Bry%2FhMjRI%2BwZXbbZ9NWeTXzB2URYa9QjkkHacOSeAYOCMFKzKMB%2FreOW1k2y1rNYqm1tkzu4VZLl%2F4iXBUlVMkqjdxJgqfnWaL7bOfbkI15KeNBhlZzHHBSqnlAkSiXV6wOxAYezLgU4NJrCmhZRWzh8KpOhX2S22AIY58t%2FFg06tmkHlAeUAMJahjhdznM4yTw1K2DNHS9rKqvlL7wO5YXdN29%2BKxAkShkzTnnU7M3P7oSyG0nBuK3bwCwyXPrn10AgA7limdPjcjYT397jbddJxGpSABhw8p7zaU72puY9eIu9BASVBGw6fMuXrE2wwktdJE52BwkKLOoMcqHdeu6Q5ilnMs4HA2NJWAOaFrygWIjM1lci23Ut9TGW7vmo%2FOY7rDpUk5uRCIsDdZHpER%2Frm4GAifjCqL%2FG7zmnMh3AwgyMUIu0dD6Wf3HiVGKPWqwuXm1nEH%2FpSIV0jdA0u6BdN8o3ZcUxhKFvXBXTobpBpUl3FzgUseIpJ58OKuTP0Mw8HxGXaDNTlSdwCFMFInjfJse2UjU6DM4rzvwabB0bs2VtUJ4jSVbXTbQAmr0lGFHXHz88YDGensTA6udcg5ZiN8KZVvak%2BzvEIEuL07tMllUyQMVCOatLgvYZqMgZPvbgKUjzw65A0RAkFV88m%2F3nMzGkUjftxAAaN0Luet1teTFIqZQUnHKb7hC6%2BHoSsCbzBy6JkciJ8ZasFmIfdGiavaO4W8d65ExLSFFKOqmRgLEywCGcgZJ9%2F7LicWSnGdmxFqPByOlsNknR%2Bm%2B9Bp%2FZDnnOM67UL1teUsZ1trdWA10BWzu9LqiOWDCLkIOF5bJqPOwDkg9ayFI0TzQrJIVgAXhtYn5%2BVAXCQXzRxytRhJ1t4dEwbdG1W4sQb2nYbmC6XTpQY26tH2tIu4sHbdWN4w94nwBGgdIO3b%2Beo8uFP8mA%2BMtKZbKc5k%2BBBXCSXF7HQI%2FTrsbKUieA6cDKqBURxmqwKG8uhOUagTmu1y95dgBTsH69EsF%2FyfKrfFnSh3BZTCcUUW9NU5uGbTZfEUDihCrM8XvN67LxNCJs7juwAIoYAoPyUmaAqj1By%2FvLamGQA9qFebRG7KPrdH%2FCRszJiBLziA79mnifQQWWvE351JWSVajoczvYRlhPLZlZ%2FZRgboaSxXs5RqPy%2BDOj8hx%2BFjiK8tmM7tFGMc5RnRTPfEHDnnwgfxgXRya5I4HmfP6z2AuW1M5c7EZnTghk9BR2OtmZi%2F7lfiinU26%2BoeUd5p8sSBVPKBecyxw6UDt0KMSjwYluzatpqjuTs0Mbg%2BH%2FNxlQ7Q1u0qifeUwCrtzjUgbSzuSIYK8TA8tV08%2BpEABlKthgNuQFhIYBB84o0SW2a31bZzFX2BiEzKV8frWDvtBYwol7CeT48NKcbj9wmkXLqKQrf7sA4nljqRuSvAoLpWZMs3zqrpZDcPhOo1y5FOxQJZ1fmWeWuRMiLZQF8sbcCf27EqGHkJLEyu83Yg8vY8j2In6sCEEVShgCFnJy1ViOjAH6QqPwd8H5i6RJyVNk9Tlb%2FmJvQN48DKHnm%2BN%2FX5ZT4k7DEN2NnjUSNmZfVjC8ybPedFBO8RB%2BJUDCAF83a5IQ5QOUA7zfRpBjfk3edLLj%2BClR8cVwzVeFt0JF7puHP2YC2V%2BREJmXgO8v2YAdPMtN0tX5WAggLo%2FGRucSUulqN8oL0FcrbV4AUstfmqObQ3UAaS0YaWfzlxk83dCYRvz6kG4wmY%2FNgU0e4hzGu5h%2FYtX6kQZYkBcoayyY3FHHdoLisNgg54FRVGwWLlYCRB5g5OM59N6WDvySFAjU6p64QOUPRnSRgswQT7PBpwQUvy7d5JHIyopFR7q%2B6sy6m%2FmCO76x%2BAnhqity0rZEPgaDcwzGVbI8Xzx7jbL%2FY5vjznCQKyoN0EPkXd1M0%2BBdMJJkucJD1P6wAcDuYzFxTHTuydX%2Bz4MGC4tHSH6ZaZItsGuq6k0YpQWwYC6wGhvbr%2BVWFVhakX5Hek26X2WsvXO3USDoXiC9XEnVEQY9rKWKVLnoTseAl6iVIOOB41SxdjhhOFszfdgOQyQ2dm9KUYBnCfWXWgMcPqBxCtntaH5jgX1zBJ4zX0gI6yfb9ikdrRXBlrYhXR8HnO8Fwexet9E1nvGMvh2oc%2B23SqBcTk0JMVCitC%2FsBQAuHWUnXOgxnyl0bObrnCRgmuRJ5KY0OsMgLD9w2apL97aDpmujJZIXKaUFOs3xZrOI0aJJelxDcTFhJ%2BzRJkUBlDjw8nLTr7pmZabxNttyw9sLPhS9fdri%2FUByPwqwP2hePZkBAJcUPtnq3FHxOCe2579r4DxvNM%2BjiMw%2FjA4H0uujtKIlFrAcZH98FwejaYJtLKuvhMNmdr6bce2Hz%2BXI64Pe9kLbSK%2FsH5AUynyzDDj8vFOuu84MHAVj1Osog5W3hJ%2BFO8IxUpuQnqPhQShzqXJ72T%2BaunH8v%2BGWGUFs0JZPd0Dbm0U6OZmCzT1FNqz3QCI6m2ROvcsId7xS2EQT7joL1lyUuOomCDxh%2FolOAZCqaEZ3CScpQtHxFpiY%2F0NEPq%2F5TW%2FTzcVEoQYfZJanZ0vxd6oWhVHesr%2FajjTIXkJ04rBIjsmS4fjW15D82NMFEX7Mud3%2FomuF2EEQCaf6BX%2FoKRAcPrBXfOaG6kqb4Dq6Cwg5kwxLQJQHqo%2B35EwFTYBT6ddGGoYGFXCNx4XPpSpWHzE4jBxr29uCDq6NEr%2BmyraSJc6hUG9AMKi%2FnA1PrFEGRA57J2CrBc3ckU1e6Peb754HoG5GMyV26np6t2lvu5b7VV7AVcoHNniZ9odtlqqgeo0nL0WcddL5CRSGtEx5LCgwxwbSmtuHbfCadLfhidFf5NeWTCl9vxCMryQEvb4WXCIFovWg9WGp4bEGS2w%2BqBlykiQvKTB4Njvn2je49L%2B51EMnmbPaOd2UgcCLQbgoN%2B4NSnIABEx4VOu1j2aeKyRdR9rbEDYYP8nEk8hzuxoguijUuHc1vdphuilCgjnDxqOu1g8EE%2BCWN6nUbZUwjA4NIA2c0JcqvyyD6a895AdM5R1mxVbpa7pw5AuZwERoQxiHQIuopK6tw4hRQMx3IcXc61CpmLNOQrmSuVWzTZO3LdI1XfHihimaPjFU4hzlyfPcpsW4vmJMNHM4sAlGiW7lYUR6q5Hp1UD6VdJcxAc1VqBBQMNM1ywWLQRCoF8pG8voTu2jddgGsIJeesshI%2BAZSTlfYp8mKg%2B8Dy9nKAjYVivpiIIF8eBs%2BawNmyzTT7240AkO0GsXFC4klpJVoF9%2FwM9ru7YRVmH63K89aldOgOWwwoKQrFZjjAJGJXSP2BREH2ZPQji3dj5fmgd2BO4J8f4gkImHVFCf4QH2iloWUTJrXmgYfd4eDQgcqMZNxYWCx9ZnM9CoUc3aUajXrnT12Ix8RywNeYasbee7o1SJ5m0GMFAc49W2w8cl0%2Bjh90kyqu0A3zbgGPcvRcYT1j08EuqJyIg7OZdPlDcnOww06k%2BvTJc1GBrAqny0p63SFJr8rlevS9cdXc%2FZ0UtnIzTBihhuvde53PRa%2B8IZM%2B2fwp2jegl6rW6hqYpDvA98EQoBdMyPf87JDuyNrH61O6JUDzRlp1qxi7ZTBZow4L6Z8lCiDWp8Mcwrx24FHAMG8QG3Y5tPNGFxp47qFRaoXeAxMSjks6HI7PPQBh6ybEaGmD361ypxAJO%2BEZKeGxA8TqNYSJplQAH94aAUlEtPHRuP2D0Vtgg7YmucCVduxBB4mTyCzXOYt3A4w0b2XWLnIqC6sTclb0mJnKLHiADFi5hgw4F9Sgc2qxox51QixMg6byF%2BAKPEpeLg%2FtHnln8wKEKl56%2FFo7LyRuz8KU9vrMCj0OlYepwPQwHYgFUOcZmXhvAP56ogrQkGVZypw4hCoZ2cesGC5NJWVC%2BCgkNzG6THUlJ5YZPC1REItEUjp6DeByFps0CtxWGPRBvp4olRWpnYRYPFdYow6egMc1iwOU2GzWgQM6i998d19cDB8W%2FApiLKI3DmTBii%2F7KjDXCzBTd%2BdMLsHDHNW6wbz%2B1rh82d4mv4Hn%2FVXXBlY7EklU%2BUIHaNBKcy5ZVw02sbkUuBQ5oCVWLQKNczYLE1yluFpRDhEjbM8JaOBNaLJvcSRMhHTFBEf08q%2FuzIdbw4MQANV7NaU069XiCB46BtCM3EtqUgS1cSpWtUOZWwWqwhfOHrY%2FnBKuGaJbAcJNB4VFBjuNhoHp6WYtjD3MbR1znt%2BD3YBiMfDRi5eAcOhTMqG5qKC765aMIFCiNiG0KUm9xRdF08p0CYQBZuC3mKX8QkgEJr8J1rOTgJwxKanUj%2BNNLwaSfVSUvs6e14cpsolDc6eD43mX2VmAr3ShjPj5Xt3ax6RIGcKRp0806ipRt11ZIkOV8FDvuGPh2DBfuK%2FF%2BcVHIDoqjZPmQiIFz5ecBc1IA5Y922xJdnIh5egSPLag5efewfZYMsIYFN7tw7Q%2B94G8gR1o6d6OtFB66Vc95M7pGL9hZX4tzwcBA4xKrSOBGDDQXeZ2gHmL3U10etoB7RnWMX8AKu0NbgpO3go6gz6eI8xwlUBRColTy%2Bv%2BPhTabd11j4HlicMoU0KA3s4UIhahjHBWElFz4udeyKVRguZQSPV9OnWwveASrcnqZQhkZB204JxbQIvvVyPLhE5qRWjZp0KMCcYN2qIHNBE8cRjA5tvGEdkN9LsBu%2Bw4s9DkHsZjqk0X4SyowH3GvHJI1G437KJ9YgMlcn22ymggcpKJsvPnmgPncnsKmSAbIbE%2FehpQqN3jYXESPFvRz8C8M%2FdxmbAeWFX%2BOG1dXyB9GeW8lwrxzKB1zhDWWPu2HR42IibsIKdHcRRVb0ILM8UVRaZgZbL66dpLa1nnK9Git%2FUx9rKKKF9eXsWecRnE98qbh%2B4JHIlOjgrhJYv05KY4m%2BgHeIpcLwokdwkBpbVG6ynLsvmI6jJP7YEl4N7OuwPVB%2FEVyqTsIoZZnzo8XTFKltJnmDZmNpk%2FuGs27yBGmcNzh%2BbWELiTSTobmWj2XDaMpxEnz05AEudiueDndQVxhHKQRUHrpoSoPCvQ1%2Fa0adkP9macfAUG6lywFMQ5VT2CsjKuAtslgtfFpo%2FTJ%2Bi%2FR2WnZSamIgCOz%2BgFTFi72jxkc4548ub5B4yK91o%2B7Nes3s8yPe6RYHodxoodxe7OA%2BnNLMfAYDJV5UIohON2jqLyBE3OeDUIeG5imOhS8xElASC58Z7fY10s4%2FnUFqdRKmktO5maleyL6kqfduO%2B56P4hJ2PY32nz7r%2FtloJFEAH%2F4XH%2F9J9o0Fy4FoiQk7yfeIZL4tcwME%2F2d6OFkNdR4vZ%2FsBiP%2Br3LvbDiV9fbPxXrqXEPy41dqCXoX0lL98I0FMogDIvX%2FaOw2KLtnO%2BbgYhsP%2Fj6Pr%2FhX9f935%2B9zsQf%2FtWt9%2BvoW%2BXg%2F%2F9Wws%2FboB%2BX%2FAq1F2M1rpO3fCy6PGfvtaV5%2F9p2zA%2Bruv%2BIMW%2FY3P5%2BK5R5U23%2FyNv97obsuGP7i%2FHf7fScBL7xFC%2FFrYY7hOL%2F5Ur8j96hXGwrf99C%2FL%2FFYWgz518pRDq716Uz33QhniN2gL6CdRG2aKF%2BFgdjS9fCPj%2Bd2f%2Bwh2Q78cvuxY%2F74b8%2Fg7In3Y7frXX8aetjz%2Bz2%2FGlBLG0hPJF%2Fv%2Bz2yn%2FaPT91W2Rv3VX5BsV%2BPdtivxjqEf%2FnRbye%2FbIosK3iv5sNfjvs5q%2FxUDY32gg%2F%2FZds3%2FMQLh%2FTgghfjmG%2FPIu6q8thPg1E%2FnTzeG3b6P%2BZ0WMz19D%2FAcYxH86przvoP9VG3nX9p%2B91R7%2FnJO9MSL622%2Ft%2Fcl75Anqb8Wr32N938Grv8WI3nOtfy7wfPfjHR8zxL9N0ewfwJ1vmAn79%2BPOb%2BUhf9XnZohvJuso6puQ8lu%2F30HiX8cm6ttv5f3LsQm9%2Ffz8md%2FXy3%2F6WDIp%2Fz8%3D"
-></iframe>
-<h5>Azure Function</h5>
-<p>
-  The process starts with an Azure Function, written in JavaScript, which is
-  responsible for several key operations. The
-  <strong>Daily Export</strong>
-  is triggered with a timer-trigger to perform daily exports of data. It
-  identifies what has changed since the last export to ensure that only new or
-  updated items are processed. Most of our DevOps Organizations are created with
-  our own tooling
-  <a href="https://de.cosmoconsult.com/cosmo-alpaca/" target="_blank"
-    >(COSMO Alpaca)</a
-  >, so that all specific needs will be applied automatically (i.e. process
-  modifications, repos, pre-defined work items, etc.). We added a step to this
-  tooling where a service user will be added to the organization as well. Then
-  we can leverage that service user to access all organizations.
-</p>
-<h5>Azure DevOps</h5>
-<p>
-  Data is extracted from Azure DevOps, specifically from two types of storage
-  within it:
-  <strong>Work Items</strong>
-  are the basis of COSMO Loop. The export takes all kinds of Work Item Types
-  into account, not just user stories. COSMO Loop also scans the
-  <strong>repos</strong> of the organization for specific information.
-</p>
-<h5>Data Transformation</h5>
-<p>
-  Back in the Azure Function, the exported data undergoes a transformation where
-  the relevant
-  <strong>Entity, Platform, etc.</strong>
-  are getting detected. This is based on assumptions and processes at Cosmo
-  Consult. For example, it can detect the Entity related to the Organization
-  based on specific permissions. It can also detect the line of business and
-  used products (Business Central, D635 FSCM D365 CE,...) based on the content
-  of the repositories.
-</p>
-<h5>Azure Cognitive Service</h5>
-<p>
-  The Azure Cognitive Service is utilized for its
-  <strong>Personally Identifiable Information (PII) Detection</strong> and other
-  capabilities. This is likely integrated with the anonymization step in the
-  Azure Function to ensure that all PII is identified and handled appropriately.
-  Identified PPIs are getting repalced with a placeholder.
-</p>
-<h5>Azure Blob Storage</h5>
-<p>
-  The final transformed and anonymized data is stored in Azure Blob Storage in a
-  JSON format. Azure Blob Storage serves as a scalable and secure cloud storage
-  solution for large amounts of unstructured data.
-</p>
-<h3>Data Visualization</h3>
-<p>
-  The flowchart shows the frontend architecture and interaction with the backend
-  services for the COSMO Loop.
-</p>
-<iframe
-  frameborder="0"
-  style="width: 100%; height: 400px"
-  src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Untitled%20Diagram.drawio#R7Vpbd7I4FP01PtbFRRAfvdROZ7VTp6w1befFFSECbSBMCFX7678EgoLBSz9bL13jQ8s5hJDsfc7OSbSh98P5DQGxf49diBqa4s4b%2BqChaaquttg%2F7lnkHsvQc4dHAlc0Wjns4AMKpyK8aeDCpNKQYoxoEFedDo4i6NCKDxCCZ9VmU4yqb42BByWH7QAke58Cl%2FrCq5qd1Y0%2FYOD54tWW1s5vhKBoLGaS%2BMDFs5JLv27ofYIxza%2FCeR8iDl6BS%2F7ccMPd5cAIjOg%2BD4xtZD1ehf2bkf88vvowOyPr7Ur08g5QKibcf7DvH5jrDuNYDJwuCjSSWRAiEDGr59MQMafKLh0%2FQO4dWOCUDyShwHkrrB6zCBW0sgHqPYLTyIV8TNxagsINBCYQ9djTXtaojxEm7FaEsxcmlOC3JQkMvt4UR3QIwgDx2PoHEhdEQLjFGy1mAhR4Ebt2GE6Q9deTgStQgITCecklgLyBOISULFgTcbclOF1UzVkpQvSCd78UHS1LOIEIS2%2FZ9Yo5diHI%2BwSRmkRk9yMlkLm6MeNRsSF5Dxy4J6MSazL4MopbA2w3tAJLTcZS1%2BugNLdAKXp%2FZIoAIg%2FBrd23anpv62u9A8SCJwIU9nhoJhJfy4nsReHL89urPdTnaDrvPTwZ6fM88WpyUWIrCDO56oEkzsVuGsx5LpW5i3EQ0WzURq9hDOoyoJQhKudSdDsIQo%2BNHAUT9hfw8OGTBHE8TvLoYdMesnAai2BKmsm7d0hwaHsHR3FXMyqJp8tsWjVsfkXW3Y6u%2Ftb%2Fs%2F3Zv6FtvD4NXvw7emVKlD1CwIgRWbeeaz6I%2BWVMMAOPjaU38wMK7Rg43D1jK2iVyslSCx9SioIILtPzaIArVcDVdo3U1Sndtuw8CPKOBLkNAXH8H4G2Vl1XaheWgpGjoK3KomSnngcT%2BhPx1tWT4y2v46wQe0t%2Fhpisw20dEe766kTZWDYN08ihAY7OuGKar5VHX1lBHQRra3clwyMxPggmZQNOy70gmBQvU7bip6qdpmnuqis6StNsK6uPJgOqqt8FqLEb0EIPihKR4xKwfewd31SNcBJkwawPJphSHG7ebblwClJESz10RflIcVxXemYv7BZepVRO%2BpTyXXqXz10bBs1sZ9hkRWZKmg4bgza8D2czrRlHB1WRrQ2BsJFwbY1KtUp%2BzaLbrtsifBfZclEpkX2KfQBjLE4pk8ZhIY1jVuQevAfYn731ZJQp%2BbY6X86%2FouhUuqPbM1ybN6rjFhU0mrrWWX2sSlIctfCvn5K8qhRrdR97EdO3d5gddNTvBs5t1TbNE67atecPcul5Frqzdv6Q8%2FtlRxDqp1cPVWHlgrqrXGC1QLN9TImS2VtK1G3ksqltEilnwQTHhUTfQ6bys9u7yU7dEuQaR6ZGXzutMGVizJqc%2BrZTWbW9UbN6CE%2B4XFFMePCfvV51Oue2y1Ct8xSspKB0KMgdX89jVlxDcrBYtT%2FLmqqzSqm1S6xMq9lWj6hV8qHSn%2FbDXxeoUL%2FBR6vZ6ZxMpGrZ0CXgoetBW5iYUB97OALoeuVd%2BxZv1Sb71jBH%2BBVSuhBJA1KKq0TBeUCfxeP8%2BoVfNw1hDealW4NFyRhBErBp86zMfRGD4LnolBulnri56iqzFmVrvbMpwrNuxJJb7JUPK8EFrDglDtydDEzZPUh3L%2FCcm62RRiACWS1cPhL58qCxThk06meCpggQ5VIDxLjIAGlfSoCchFNzT06Ns%2BJUPelS8XtZv0r0l%2FIqsSHrXZD42VhVYYwA5V%2F854WfpmTV30kipnOZEdO6lIg5X%2BbVfSuEM6Pe%2BJ%2F6g6nXzox6Zq5%2BsZj%2F8Gn1u0%2F9%2Bhc%3D"
-></iframe>
-<h5>React App</h5>
-<p>
-  The React App is hosted on an Azure App Service, which is the client-facing
-  part of COSMO Loop. The React App is composed of several components that
-  interact with the backend services.
-</p>
-<ul>
-  <li>
-    <strong>Search</strong> This component allows users to query and retrieve
-    information. The search provides a list of possbile results based on the
-    search query and filters, sorted by relevance.
-  </li>
-  <li>
-    <strong>Suggest</strong> COSMO Loop is showing suggestions while the user
-    types in the search bar, like i.e. Google does.
-  </li>
-  <li>
-    <strong>Lookup</strong> With the lookup, a user can select a specific search
-    result and get more detailed information. All details are shown in a card
-    view.
-  </li>
-  <li>
-    <strong>Authentication</strong> The React App uses
-    <a href="https://www.npmjs.com/package/@azure/msal-react"
-      >@azure/msal-react</a
-    >
-    to provide a single-sign-on authentication experience.
-  </li>
-</ul>
+<h3>User Engagement and Statistics</h3>
 
-<h5>Azure Function</h5>
-<p>
-  A JavaScript-based Azure Function serves as a serverless backend for the React
-  application. The React App communicates with this
-  <strong>Search API</strong> to handle search, suggest, and lookup operations.
-  The Search API acts as a middleware between the frontend and Azure Cognitive
-  Search. The Azure Function is secured with out of the box Azure AD
-  <strong>Authentication</strong>, to ensure that only Cosmo Consult Employees
-  have access. The data used for search operations is indexed in
-  <strong>Azure Cognitive Search</strong>. The Search API queries this index to
-  fetch the search results.
-</p>
+<p>Over the last 90 days, COSMO Loop has engaged 728 users — a figure that reflects our tool's integral role in the daily activities at Cosmo Consult. Each day, COSMO Loop systematically scans 358 DevOps organizations, effectively managing an average of 2,000 work items that where created or updated. This daily process has accumulated a substantial repository of 480,000 work items, providing a rich pool of data for our users. These statistics not only underscore the widespread adoption and trust in COSMO Loop but also highlight the sheer scale of our operations.</p>
 
-<h3>Feedback and Iteration</h3>
-<p>
-  With the core components of the MVP in place, we initiated a pilot program
-  with early adopters within Cosmo Consult. The response was quite positive, and
-  traction grew rapidly. The early feedback we received was invaluable, enabling
-  us to refine and improve COSMO Loop iteratively. This phase was crucial, as it
-  allowed us to address any issues and enhance the tool's functionality based on
-  real-world use and user experiences.
+<img src="public/loop-users.png">
+
+<h3>Search Feature in Depth</h3>
+<p>The search functionality within COSMO Loop is designed for simplicity and precision. When entering a term such as "Shopify Tracking IDs" into the search bar, the system promptly displays a list of related user stories that have already been completed. As seen in the screenshot, the filter pane on the left side allows for further refinement of these results. Here, it's used to narrow down the search to 'closed' work items and specifically 'user story' types. This level of detail in the filtering process ensures that users can quickly find relevant past work, providing a streamlined way to access completed tasks that may offer valuable insights for current projects. Also it's possbile to save different filter presets, or use metadata like the entity, organization or bc version, which where gather via the export.</p>
+<img src="public/shopify-example.png">
+<img src="public/search-bar.png">
+
+<h3>"My Work Item View" Functionality</h3>
+<p>The "My Work Item View" was more or less a side effect and is a feature in COSMO Loop designed to provide a consolidated overview of work items across the organization. Prior to this, team members needed to navigate through each DevOps organization separately to gather relevant data — a task that was both time-consuming and cumbersome. Now, with this functionality, users benefit from an organization-wide backlog view. This unified perspective brings together all pertinent work items into a single, streamlined interface. The advantage is clear: it saves valuable time and simplifies the process of managing and prioritizing work. Whether it's tracking progress or planning ahead, "My Work Item View" ensures that all the information you need is readily accessible, facilitating more efficient and informed decision-making.</p>
+
+<h3>DevOps Client</h3>
+<p>Enhancing the intuitiveness of COSMO Loop, we've developed an add-in for Azure DevOps that embeds our sophisticated search interface directly within the work item card. This seamless integration pre-populates the search field with the title of the work item, saving steps and time for the user. The immediate benefit is the ease of use—there's no need to switch contexts or applications to conduct a search. This integration fosters a more fluid and natural workflow, allowing team members to find related work items, shared solutions, or past project details without ever leaving the card they're working on.</p>
+<img src="public/search-bar.png">
+
+<h3>Conclusion</h3>
+<p>In closing, our journey with COSMO Loop is far from complete. The platform continues to evolve, with significant enhancements on the horizon. We're excited about the implementation of vector search technologies, which promise to bring a new level of precision and context-awareness to our search capabilities within the Cosmo platform. Additionally, we're in the development stages of introducing a retrieval augmented generation (RAG) model, a sophisticated type of chatbot that will assist our consultants in writing comprehensive and high-quality user stories by drawing on a vast database of existing work items and documentation. These innovations underscore our commitment to not only maintaining but also elevating the standard of efficiency and support we provide to our Cosmonauts. Stay tuned for these updates, as they represent the next step in our relentless pursuit of excellence and innovation in project management and collaboration.
 </p>
