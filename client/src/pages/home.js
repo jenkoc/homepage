@@ -44,8 +44,7 @@ export default function Home() {
             </div>
           </div>
           <div className="col-sm-4 d-flex flex-column">
-            <div
-              className="d-flex flex-grow-1 justify-content-center align-items-end p-3 my-2 bento">
+            <div className="d-flex flex-grow-1 justify-content-center align-items-end p-3 my-2 bento">
               <img
                 src="/memoji-hi.png"
                 width="250"
@@ -61,8 +60,7 @@ export default function Home() {
         </div>
         <div className="row no-gutters">
           <div className="col-sm d-flex flex-column">
-            <div
-              className="d-flex justify-content-center align-items-center flex-grow-1 text-center p-3 my-2 bento bento-gradient">
+            <div className="d-flex justify-content-center align-items-center flex-grow-1 text-center p-3 my-2 bento bento-gradient">
               <div>
                 <SkillImage title="HTML" src="/html.svg" />
                 <SkillImage title="Java Script" src="/javascript.svg" />
@@ -86,8 +84,7 @@ export default function Home() {
             </div>
           </div>
           <div className="col-sm d-flex flex-column">
-            <div
-              className="flex-grow-1 d-flex flex-column justify-content-center p-3 my-2 bento">
+            <div className="flex-grow-1 d-flex flex-column justify-content-center p-3 my-2 bento">
               <CTAButton
                 title="Send me an email"
                 href="mailto:mail@jenskock.de"
@@ -145,29 +142,32 @@ export default function Home() {
                     </div>
                   </div>
                 ) : null}
-                {posts.map((post) => {
-                  return (
-                    <Link
-                      key={post.id}
-                      to={`/blog/${post.id}`}
-                      target="_self"
-                      rel="noreferrer"
-                    >
-                      <div className="comment mt-1 text-justify">
-                        <h5 className="text-muted">{post.title}</h5>
-                        <small>{new Date(post.pubDate).toLocaleString()}</small>
-                      </div>
-                    </Link>
-                  );
-                })}
+                {posts
+                  .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
+                  .map((post) => {
+                    return (
+                      <Link
+                        key={post.id}
+                        to={`/blog/${post.id}`}
+                        target="_self"
+                        rel="noreferrer"
+                      >
+                        <div className="comment mt-1 text-justify">
+                          <h5 className="text-muted">{post.title}</h5>
+                          <small>
+                            {new Date(post.pubDate).toLocaleString()}
+                          </small>
+                        </div>
+                      </Link>
+                    );
+                  })}
               </div>
             </div>
           </div>
         </div>
         <div className="row no-gutters">
           <div className="col-sm-4 d-flex flex-column">
-            <div
-              className="d-flex flex-column flex-grow-1 justify-content-end align-items-center p-3 my-2 bento">
+            <div className="d-flex flex-column flex-grow-1 justify-content-end align-items-center p-3 my-2 bento">
               <div>
                 <a
                   className="link-dark"
@@ -209,10 +209,9 @@ export default function Home() {
             </div>
           </div>
           <div className="col-sm-8 d-flex flex-column">
-            <div
-              className="flex-grow-1 text-center p-3 my-2 bento">
+            <div className="flex-grow-1 text-center p-3 my-2 bento">
               <h5>About me</h5>
-              <p>
+              <p className="text-justify">
                 Hi, I'm Jens and my enthusiasm for everything to do with
                 computers, technology and electrics began when I was a child.
                 This passion has accompanied me over the years and is still a

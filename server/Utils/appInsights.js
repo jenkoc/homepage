@@ -3,7 +3,7 @@ const appInsights = require("applicationinsights");
 exports.initAppInsights = function initAppInsights() {
   appInsights
     .setup(
-      "InstrumentationKey=37ea6b54-c38a-4707-a388-f183d456fb67;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/"
+      "InstrumentationKey=87638811-476d-4232-a0e3-61d23f415eed;IngestionEndpoint=https://westeurope-5.in.applicationinsights.azure.com/;LiveEndpoint=https://westeurope.livediagnostics.monitor.azure.com/"
     )
     .start();
   appInsights.defaultClient.config.samplingPercentage = 100;

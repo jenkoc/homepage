@@ -128,6 +128,11 @@ a {
   text-align: left;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
+
 h5 {
   color: var(--textColor);
 }

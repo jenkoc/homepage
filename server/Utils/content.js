@@ -1,6 +1,15 @@
 const axios = require("axios");
 const fs = require("fs");
 const path = require("path");
+const { Feed } = require("feed");
+
+const getCategories = async () => {
+  return getBlogPosts().then((posts) => {
+    return [
+      ...new Set(posts.flatMap((post) => post.category.map((c) => c.name))),
+    ];
+  });
+};
 
 const getBlogPosts = async (category) => {
   try {
@@ -28,7 +37,7 @@ const getBlogPosts = async (category) => {
     }
 
     if (category) {
-      return posts.filter((p) => p.category === category);
+      return posts.filter((p) => p.category.some((c) => c.name === category));
     } else {
       return posts;
     }
@@ -101,6 +110,7 @@ const getFeed = async (type) => {
 };
 
 module.exports = {
+  getCategories,
   getBlogPosts,
   getFeed,
 };

@@ -1,5 +1,5 @@
 const express = require("express");
-const { getBlogPosts, getFeed } = require("./Utils/content");
+const { getCategories, getBlogPosts, getFeed } = require("./Utils/content");
 const {
   initAppInsights,
   trackEvent,
@@ -11,6 +11,21 @@ initAppInsights();
 const app = express();
 app.use(express.static("build"));
 app.use(express.json());
+
+app.use("/api/v1/categories", async (req, res, next) => {
+  try {
+    trackEvent(req, "api", {
+      location: "/api/v1/categories",
+      filter: req.query,
+    });
+    const result = await getCategories();
+    res.status(200).json(result);
+  } catch (error) {
+    trackException(req, error, { location: "/api/v1/categories" });
+    res.status(500).send(error);
+  }
+});
+
 app.use("/api/v1/blogposts/:id", async (req, res, next) => {
   try {
     trackEvent(req, "api", { location: "/api/v1/blogposts/:id" });
@@ -26,7 +41,10 @@ app.use("/api/v1/blogposts/:id", async (req, res, next) => {
 
 app.use("/api/v1/blogposts", async (req, res, next) => {
   try {
-    trackEvent(req, "api", { location: "/api/v1/blogposts", filter: req.query });
+    trackEvent(req, "api", {
+      location: "/api/v1/blogposts",
+      filter: req.query,
+    });
 
     const result = await getBlogPosts(req.query?.category);
     res.status(200).json(result);

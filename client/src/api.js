@@ -14,6 +14,12 @@ axios.interceptors.response.use(
   }
 );
 
+async function getCategories() {
+  //return getMockCategories();
+
+  return api.get(`/categories`);
+}
+
 async function getBlogPosts(category) {
   //return getMockBlogPosts(category);
 
@@ -25,6 +31,10 @@ async function getBlogPost(id) {
   //return getMockBlogPost(id);
 
   return api.get(`/blogposts/${id}`);
+}
+
+function getMockCategories() {
+  return { data: ["Azure", "JavaScript", "Node.js", "React"] };
 }
 
 function getMockBlogPost(id) {
@@ -223,4 +233,4 @@ function getMockBlogPosts(category) {
   }
 }
 
-export { getBlogPosts, getBlogPost };
+export { getBlogPosts, getBlogPost, getCategories };

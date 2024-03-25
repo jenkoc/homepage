@@ -7,6 +7,8 @@ const CategoryPill = ({ name,active, onClick }) => {
         return "/azure.svg";
       case "SQL":
         return "/azure-sql.svg";
+        case "Azure DevOps":
+        return "/azure-devops.svg";
       case "Business Central":
         return "/bc.svg";
       case "CSS":
